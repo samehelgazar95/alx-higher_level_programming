@@ -7,8 +7,8 @@ if __name__ == "__main__":
     if argsLen == 1:
         print("0 arguments.")
     elif argsLen == 2:
-        print('''1 argument:
-    1: {}'''.format(args[1]))
+        print("1 argument:")
+        print("1: {}".format(args[1]))
     else:
         print("{} arguments:". format(argsLen))
         for i in range(1, argsLen):
