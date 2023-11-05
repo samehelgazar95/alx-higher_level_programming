@@ -5,5 +5,5 @@ def print_matrix_integer(matrix=[[]]):
 
     for row in matrix:
         for ele in row:
-            print("{:d}".format(ele), end=' ')
+            print("{}".format(ele), end=' ')
         print()
