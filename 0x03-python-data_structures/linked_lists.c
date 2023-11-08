@@ -11,6 +11,7 @@
 size_t print_listint(const listint_t *h)
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
 	const listint_t *current;
 	unsigned int n; /* number of nodes */
 
@@ -24,6 +25,21 @@ size_t print_listint(const listint_t *h)
 	}
 
 	return (n);
+=======
+    const listint_t *current;
+    unsigned int n; /* number of nodes */
+
+    current = h;
+    n = 0;
+    while (current != NULL)
+    {
+        printf("%i\n", current->n);
+        current = current->next;
+        n++;
+    }
+
+    return (n);
+>>>>>>> fa7cf70f403cf14e4d6e998e8708f132f5ddea09
 =======
     const listint_t *current;
     unsigned int n; /* number of nodes */
