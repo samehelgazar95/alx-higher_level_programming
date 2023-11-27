@@ -1,0 +1,67 @@
+docTest for``0-add_integers`` module
+=====================================
+
+Using ``add_integer()`` function
+--------------------------------
+    >>> add_integer = __import__('0-add_integer').add_integer
+
+Test Cases:
+-----------
+test two positive int
+    >>> add_integer(1, 2)
+    3
+
+test positive int and negative int
+    >>> add_integer(100, -2)
+    98
+
+test passing one positive int
+    >>> add_integer(2)
+    100
+
+test float and negative int
+    >>> add_integer(100.3, -2)
+    98
+
+test negative int and float
+    >>> add_integer(-5, 5.5)
+    0
+
+test float and positive int
+    >>> add_integer(.5, .5)
+    0
+
+test positive int and string
+    >>> try:
+    ...    print(add_integer(4, "School"))
+    ... except Exception as e:
+    ...     print(e)
+    b must be an integer
+
+test passing one param = None 
+    >>> try:
+    ...     print(add_integer(None))
+    ... except Exception as e:
+    ...     print(e)
+    a must be an integer
+
+test passing only string
+    >>> try:
+    ...     print(add_integer("School"))
+    ... except Exception as e:
+    ...     print(e)
+    a must be an integer
+    
+test passing one param = True
+    >>> try:
+    ...     print(add_integer(True))
+    ... except Exception as e:
+    ...     print(e)
+    a must be an integer
+
+test passing one param = False
+    >>> try:
+    ...     print(add_integer(False))
+    ... except Exception as e:
+    ...     print(e)
+    a must be an integer
