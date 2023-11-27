@@ -55,10 +55,18 @@ Text Cases
     >>> text_indentation("Hello World, Goodbye World!.")
     Hello World, Goodbye World!.
 
-    >>> text_indentation("H")
-    H
+    >>> text_indentation("Hello    :   Holberton   ? School.    foo")
+    Hello:
+    <BLANKLINE>
+    Holberton?
+    <BLANKLINE>
+    School.
+    <BLANKLINE>
+    foo
 
-    >>> text_indentation("H.")
-    H.
+    Traceback (most recent call last):
+    ...
+    TypeError: text must be a string
 
-
+    >>> text_indentation("NaN")
+    NaN

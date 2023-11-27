@@ -7,8 +7,14 @@
 
 
 def add_integer(a, b=98):
-    """
-        add two integers function
+    """ add two integers function
+
+        Args:
+            a: the first number
+            b: the second numebr
+
+        Rasies:
+            TypeError: if a or b is not int or float
     """
 
     if type(a) not in [int, float]:

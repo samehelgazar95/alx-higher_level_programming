@@ -3,8 +3,18 @@
 
 
 def matrix_divided(matrix, div):
-    """ matrix_divided function """
+    """ matrix_divided function
 
+        Args:
+            matrix: the 2d matrix
+            div: the denominator
+
+        Raises:
+            TypeError: if elements of the matrix is not int or float
+                        if len of rows is not equal
+                        if div is not a number
+            ZeroDivisionError: if div equals Zero
+    """
     msg = "matrix must be a matrix (list of lists) of integers/floats"
     if any(type(e) not in (int, float) for r in matrix for e in r):
         raise TypeError(msg)

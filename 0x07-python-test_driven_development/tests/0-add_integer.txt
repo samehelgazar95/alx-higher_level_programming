@@ -65,3 +65,8 @@ test passing one param = False
     ... except Exception as e:
     ...     print(e)
     a must be an integer
+
+    >>> add_integer("nan")
+    Traceback (most recent call last):
+    ...
+    TypeError: a must be an integer

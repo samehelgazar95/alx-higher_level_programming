@@ -3,6 +3,14 @@
 
 
 def text_indentation(text):
+    """text_indentation function for adding 2 lines after .:?
+
+        Args:
+            text: the string text
+
+        Raises:
+            TypeError: if text is not string
+    """
     if not isinstance(text, str):
         raise TypeError("text must be a string")
 

@@ -3,7 +3,15 @@
 
 
 def print_square(size):
-    """ print_square function """
+    """ print_square function
+
+        Args:
+            size: the size of the matrix
+
+        Raises:
+            TypeError: if the size is not int
+            ValueError: if the size is less than or equals to 0
+    """
 
     res = [[]]
     if not isinstance(size, int):

@@ -8,33 +8,36 @@ Using the ``say_my_name()`` function
 
 Test Cases
 ----------
-
-test "John", "Smith"
     >>> say_my_name("John", "Smith")
     My name is John Smith
 
-test "Walter", "White"
     >>> say_my_name("Walter", "White")
     My name is Walter White
 
-test "Bob"
     >>> say_my_name("Bob")
     My name is Bob 
 
-test 12, "White"
     >>> try:
     ...     say_my_name(12, "White")
     ... except Exception as e:
     ...     print(e)
     first_name must be a string
 
-test "Walter", 2
     >>> try:
     ...     say_my_name("Walter", 2)
     ... except Exception as e:
     ...     print(e)
     last_name must be a string
 
-test "Hieseberg 2"
     >>> say_my_name("Hieseberg 2")
     My name is Hieseberg 2 
+
+    >>> say_my_name("Walter", 12)
+    Traceback (most recent call last):
+    ...
+    TypeError: last_name must be a string
+
+    >>> say_my_name(12, "White")
+    Traceback (most recent call last):
+    ...
+    TypeError: first_name must be a string
