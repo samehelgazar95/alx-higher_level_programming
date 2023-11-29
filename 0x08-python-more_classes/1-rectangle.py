@@ -6,18 +6,18 @@ class Rectangle():
     """ Simple Rectangle Class """
 
     def __init__(self, width=0, height=0):
-        """The Instance"""
+        """Initialize the Rectangle instance."""
         self.__width = width
         self.__height = height
 
     @property
     def width(self):
-        """Width Getter"""
+        """Getter method for width."""
         return self.__width
 
     @width.setter
     def width(self, value):
-        """Width Setter"""
+        """Setter method for width."""
         if type(value) != int:
             raise TypeError("width must be an integer")
         elif value < 0:
@@ -26,12 +26,12 @@ class Rectangle():
 
     @property
     def height(self):
-        """Heigth Getter"""
+        """Height method for width."""
         return self.__height
 
     @height.setter
     def height(self, value):
-        """Heigth Setter"""
+        """Setter method for height."""
         if type(value) != int:
             raise TypeError("height must be an integer")
         elif value < 0:
