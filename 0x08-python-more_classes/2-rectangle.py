@@ -40,8 +40,8 @@ class Rectangle():
 
     def area(self):
         """The area equation"""
-        return self.width * self.height
+        return self.__width * self.__height
 
     def perimeter(self):
         """The perimeter equation"""
-        return (self.width + self.height) * 2
+        return (self.__width + self.__height) * 2
