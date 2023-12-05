@@ -9,4 +9,4 @@ def is_same_class(obj, a_class):
     @a_class: the class
     Return: True or False
     """
-    return isinstance(obj, a_class)
+    return type(obj).__name__ == a_class.__name__
