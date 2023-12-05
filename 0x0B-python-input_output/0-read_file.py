@@ -5,9 +5,5 @@
 def read_file(filename=""):
     """Read File Function"""
     with open(filename, 'r', encoding='utf-8') as f:
-        content = f.read()
-
-        if content[-1] == '\n':
-            content = content[:-1]
-
-        print(content)
+        for line in f:
+            print(line, end='')
