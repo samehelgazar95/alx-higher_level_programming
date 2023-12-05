@@ -4,5 +4,5 @@
 
 def read_file(filename=""):
     """Read File Function"""
-    with read(filename) as f:
-        print(f)
+    with open(filename, 'r') as f:
+        print(f.read())
