@@ -18,6 +18,8 @@ TestCases:
     >>> bg.integer_validator("mul", 5*5)
     >>> bg.integer_validator("sum", 5+5)
     >>> bg.integer_validator("sub", 5-2)
+    >>> bg.integer_validator("", 5)
+    >>> bg.integer_validator(None, 5)
 
     >>> try:
     ...     bg.integer_validator("name", "John")
@@ -101,3 +103,9 @@ TestCases:
     ... except Exception as e:
     ...     print("[{}] {}".format(e.__class__.__name__, e))
     [TypeError] dict must be an integer
+
+    >>> try:
+    ...     bg.integer_validator("tuple", (1, 3))
+    ... except Exception as e:
+    ...     print("[{}] {}".format(e.__class__.__name__, e))
+    [TypeError] tuple must be an integer

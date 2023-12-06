@@ -3,9 +3,9 @@ BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
 bg = BaseGeometry()
 
-bg.integer_validator("my_int", 219)
+# bg.integer_validator(None, 2)
+# bg.integer_validator("", 2)
+bg.integer_validator("Hello", (1, 2))
 
-try:
-    bg.integer_validator("float", 5-2.5)
-except Exception as e:
-    print("[{}] {}".format(e.__class__.__name__, e))
+
+
