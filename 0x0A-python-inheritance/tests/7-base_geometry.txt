@@ -95,3 +95,9 @@ TestCases:
     Traceback (most recent call last):
     ...
     Exception: area() is not implemented
+
+    >>> try:
+    ...     bg.integer_validator("dict", {'1': 1, '2': 2})
+    ... except Exception as e:
+    ...     print("[{}] {}".format(e.__class__.__name__, e))
+    [TypeError] dict must be an integer
