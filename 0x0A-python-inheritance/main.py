@@ -7,6 +7,13 @@ my_list.append(4)
 my_list.append(2)
 my_list.append(3)
 my_list.append(5)
+my_list.append(0)
+my_list.append(-1)
+my_list.append(-5)
+my_list.remove(0)
+my_list.remove(-5)
+
+
 print(my_list)
 my_list.print_sorted()
 print(my_list)
