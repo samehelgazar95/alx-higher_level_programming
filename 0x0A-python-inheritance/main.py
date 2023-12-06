@@ -12,7 +12,7 @@ my_list.append(-1)
 my_list.append(-5)
 my_list.remove(0)
 my_list.remove(-5)
-
+my_list.clear()
 
 print(my_list)
 my_list.print_sorted()
