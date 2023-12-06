@@ -1,56 +1,12 @@
 #!/usr/bin/python3
- 
-class_to_json = __import__('8-class_to_json').class_to_json
+Student = __import__('9-student').Student
 
-class First:
-    def __init__(self, name):
-        self.name = name
-        self.number = 0
+students = [Student("John", "Doe", 23), Student("Bob", "Dylan", 27)]
 
-    def __str__(self):
-        return "[First] {} - {:d}".format(self.name, self.number)
-
-class Second:
-    score = 0
-
-    def __init__(self, name, number = 4):
-        self.__name = name
-        self.number = number
-        self.is_team_red = (self.number % 2) == 0
-
-    def win(self):
-        self.score += 1
-
-    def lose(self):
-        self.score -= 1
-
-    def __str__(self):
-        return "[Second] {} - {:d} => {:d}".format(self.__name, self.number, self.score)
-    
-m = First("John")
-m.number = 89
-print(type(m))
-print(m)
-print(m.__dict__)
-
-print("-------------------------------")
-
-mj = class_to_json(m)
-print(type(mj))
-print(mj)
-
-print("-------------------------------")
-print("-------------------------------")
-
-m = Second("Sameh")
-m.win()
-m.win()
-print(type(m))
-print(m)
-print(m.__dict__)
-
-print("-------------------------------")    
-
-mj = class_to_json(m)
-print(type(mj))
-print(mj)
+for student in students:
+    j_student = student.to_json()
+    print(type(j_student))
+    print(j_student['first_name'])
+    print(type(j_student['first_name']))
+    print(j_student['age'])
+    print(type(j_student['age']))
