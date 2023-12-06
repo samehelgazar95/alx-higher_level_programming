@@ -6,10 +6,13 @@ class BaseGeometry:
     """BaseGeometry Class"""
 
     def area(self):
+        """areo method"""
         raise Exception("area() is not implemented")
 
     def integer_validator(self, name, value):
-        if (type(value) is not int):
+        """Validating Int Method"""
+        if (type(value) != int):
             raise TypeError("{} must be an integer".format(name))
         if (value <= 0):
             raise ValueError("{} must be greater than 0".format(name))
+
