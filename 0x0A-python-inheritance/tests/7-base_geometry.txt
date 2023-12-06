@@ -13,6 +13,8 @@ TestCases:
 
     >>> bg.integer_validator("my_int", 12)
     >>> bg.integer_validator("width", 89)
+    >>> bg.integer_validator("long", 2147483642147483647789)
+
 
     >>> try:
     ...     bg.integer_validator("name", "John")
@@ -27,13 +29,36 @@ TestCases:
     [ValueError] age must be greater than 0
 
     >>> try:
+    ...     bg.integer_validator("age", -2147483642147483647789)
+    ... except Exception as e:
+    ...     print("[{}] {}".format(e.__class__.__name__, e))
+    [ValueError] age must be greater than 0
+
+    >>> try:
     ...     bg.integer_validator("distance", -4)
     ... except Exception as e:
     ...     print("[{}] {}".format(e.__class__.__name__, e))
     [ValueError] distance must be greater than 0
 
+    >>> try:
+    ...     bg.integer_validator("array", [5, 6])
+    ... except Exception as e:
+    ...     print("[{}] {}".format(e.__class__.__name__, e))
+    [TypeError] array must be an integer
+
+    >>> try:
+    ...     bg.integer_validator("set", {1, 2, 3})
+    ... except Exception as e:
+    ...     print("[{}] {}".format(e.__class__.__name__, e))
+    [TypeError] set must be an integer
+
+    >>> try:
+    ...     bg.integer_validator("float", 5.5)
+    ... except Exception as e:
+    ...     print("[{}] {}".format(e.__class__.__name__, e))
+    [TypeError] float must be an integer
+
     >>> bg.area()
     Traceback (most recent call last):
     ...
     Exception: area() is not implemented
-
