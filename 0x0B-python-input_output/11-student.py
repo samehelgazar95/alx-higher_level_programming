@@ -23,6 +23,9 @@ class Student:
             return dict
 
     def reload_from_json(self, json):
-        self.first_name = json['first_name']
-        self.last_name = json['last_name']
-        self.age = json['age']
+        new_first = json['first_name'] if json['age'] else self.first_name
+        new_last = json['last_name'] if json['age'] else self.last_name
+        new_age = json['age'] if json['age'] else self.age
+        self.first_name = new_first
+        self.last_name = new_last
+        self.age = new_age
