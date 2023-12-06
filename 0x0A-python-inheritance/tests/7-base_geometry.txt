@@ -15,6 +15,9 @@ TestCases:
     >>> bg.integer_validator("width", 89)
     >>> bg.integer_validator("pos_int", 42)
     >>> bg.integer_validator("long", 2147483642147483647789)
+    >>> bg.integer_validator("mul", 5*5)
+    >>> bg.integer_validator("sum", 5+5)
+    >>> bg.integer_validator("sub", 5-2)
 
     >>> try:
     ...     bg.integer_validator("name", "John")
@@ -39,6 +42,12 @@ TestCases:
     ... except Exception as e:
     ...     print("[{}] {}".format(e.__class__.__name__, e))
     [ValueError] age must be greater than 0
+
+    >>> try:
+    ...     bg.integer_validator("sub", 5-5)
+    ... except Exception as e:
+    ...     print("[{}] {}".format(e.__class__.__name__, e))
+    [ValueError] sub must be greater than 0
 
     >>> try:
     ...     bg.integer_validator("age", -2147483642147483647789)
@@ -69,6 +78,18 @@ TestCases:
     ... except Exception as e:
     ...     print("[{}] {}".format(e.__class__.__name__, e))
     [TypeError] float must be an integer
+
+    >>> try:
+    ...     bg.integer_validator("subFloat", 5-2.5)
+    ... except Exception as e:
+    ...     print("[{}] {}".format(e.__class__.__name__, e))
+    [TypeError] subFloat must be an integer
+
+    >>> try:
+    ...     bg.integer_validator("div", 5/2)
+    ... except Exception as e:
+    ...     print("[{}] {}".format(e.__class__.__name__, e))
+    [TypeError] div must be an integer
 
     >>> bg.area()
     Traceback (most recent call last):
