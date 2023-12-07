@@ -116,3 +116,21 @@ TestCases:
     Traceback (most recent call last):
     ...
     Exception: area() is not implemented
+
+
+    
+    >>> gModule = __import__("7-base_geometry").__doc__
+    >>> len(gModule) > 1
+    True
+
+    >>> gClass = __import__("7-base_geometry").BaseGeometry.__doc__
+    >>> len(gClass) > 1
+    True
+
+    >>> gArea = __import__("7-base_geometry").BaseGeometry.area.__doc__
+    >>> len(gArea) > 1
+    True
+
+    >>> gInt = __import__("7-base_geometry").BaseGeometry.integer_validator.__doc__
+    >>> len(gInt) > 1
+    True
