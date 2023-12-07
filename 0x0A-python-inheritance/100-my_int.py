@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""Int Rebel Child Module"""
 
 
 class MyInt(int):
