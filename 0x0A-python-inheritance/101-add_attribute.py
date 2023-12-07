@@ -1,8 +1,9 @@
 #!/usr/bin/python3
+"""Handling setattr with more one feature module"""
 
 
 def add_attribute(obj, val, key):
-    """Handling setattr with more one feature
+    """Handling setattr with more one feature func
     Args:
         obj: the object
         key: key of the attr
