@@ -11,6 +11,37 @@ TestCases:
 
     >>> bg = BaseGeometry()
 
+
+    >>> gModule = __import__("7-base_geometry").__doc__
+    >>> len(gModule) > 1
+    True
+
+    >>> gClass = __import__("7-base_geometry").BaseGeometry.__doc__
+    >>> len(gClass) > 1
+    True
+
+    >>> gArea = __import__("7-base_geometry").BaseGeometry.area.__doc__
+    >>> len(gArea) > 1
+    True
+
+    >>> gInt = __import__("7-base_geometry").BaseGeometry.integer_validator.__doc__
+    >>> len(gInt) > 1
+    True
+
+
+
+    >>> bg.area()
+    Traceback (most recent call last):
+    ...
+    Exception: area() is not implemented
+
+    >>> bg.area(1)
+    Traceback (most recent call last):
+    ...
+    TypeError: BaseGeometry.area() takes 1 positional argument but 2 were given
+
+
+
     >>> bg.integer_validator("my_int", 12)
     >>> bg.integer_validator("width", 89)
     >>> bg.integer_validator("pos_int", 42)
@@ -20,7 +51,6 @@ TestCases:
     >>> bg.integer_validator("sub", 5-2)
     >>> bg.integer_validator("", 5)
     >>> bg.integer_validator(None, 5)
-
 
     >>> try:
     ...     bg.integer_validator("name", "John")
@@ -94,10 +124,11 @@ TestCases:
     ...     print("[{}] {}".format(e.__class__.__name__, e))
     [TypeError] div must be an integer
 
-    >>> bg.area()
-    Traceback (most recent call last):
-    ...
-    Exception: area() is not implemented
+    >>> try:
+    ...     bg.integer_validator("bool", True)
+    ... except Exception as e:
+    ...     print("[{}] {}".format(e.__class__.__name__, e))
+    [TypeError] bool must be an integer
 
     >>> try:
     ...     bg.integer_validator("dict", {'1': 1, '2': 2})
@@ -110,5 +141,3 @@ TestCases:
     ... except Exception as e:
     ...     print("[{}] {}".format(e.__class__.__name__, e))
     [TypeError] tuple must be an integer
-
-    

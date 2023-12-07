@@ -1,7 +1,12 @@
 #!/usr/bin/python3
-Rectangle = __import__('9-rectangle').Rectangle
+BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
-r = Rectangle(3, 5)
+gModule = __import__("7-base_geometry").__doc__
+gClass = __import__("7-base_geometry").BaseGeometry.__doc__
+gArea = __import__("7-base_geometry").BaseGeometry.area.__doc__
+gInt = __import__("7-base_geometry").BaseGeometry.integer_validator.__doc__
 
-print(r)
-print(r.area())
+print(gModule)
+print(gClass)
+print(gArea)
+print(gInt)
