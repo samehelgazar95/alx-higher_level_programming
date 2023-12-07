@@ -1,12 +1,7 @@
 #!/usr/bin/python3
-BaseGeometry = __import__('7-base_geometry').BaseGeometry
+MyInt = __import__('100-my_int').MyInt
 
-gModule = __import__("7-base_geometry").__doc__
-gClass = BaseGeometry.__doc__
-gArea = BaseGeometry.area.__doc__
-gInt = BaseGeometry.integer_validator.__doc__
-
-print(gModule)
-print(gClass)
-print(gArea)
-print(gInt)
+my_i = MyInt(3)
+print(my_i)
+print(my_i == 3)
+print(my_i != 3)
