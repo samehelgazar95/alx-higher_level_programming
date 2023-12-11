@@ -19,7 +19,7 @@ class Base:
     @staticmethod
     def to_json_string(list_dictionaries):
         """ dict to JSON str repr"""
-        if list_dictionaries is None or list_dictionaries == [{}]:
+        if list_dictionaries is None or list_dictionaries == []:
             return "[]"
         else:
             return json.dumps(list_dictionaries)
@@ -32,4 +32,3 @@ class Base:
         with open(cls.__name__ + ".json", 'w') as f:
             f.write(content)
 
-    
