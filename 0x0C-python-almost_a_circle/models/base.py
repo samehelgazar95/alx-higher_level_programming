@@ -31,3 +31,5 @@ class Base:
         content = Base.to_json_string(instances_to_arr)
         with open(cls.__name__ + ".json", 'w') as f:
             f.write(content)
+
+    
