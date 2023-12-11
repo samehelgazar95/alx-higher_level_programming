@@ -3,7 +3,7 @@
 
 
 class Base:
-    """ Base Class to id for other classes """
+    """ Base Class """
 
     __nb_objects = 0
 

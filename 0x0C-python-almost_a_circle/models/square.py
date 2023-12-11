@@ -39,10 +39,18 @@ class Square(Rectangle):
         if args:
             keys = ["id", "size", "x", "y"]
             for i in range(min(len(args), len(keys))):
-                setattr(self, keys[i], args[i])
+                if key[i] == 'size':
+                    setattr(self, 'width', args[i])
+                    setattr(self, 'height', args[i])
+                else:
+                    setattr(self, keys[i], args[i])
         elif kwargs:
             for key, value in kwargs.items():
-                setattr(self, key, value)
+                if key == 'size':
+                    setattr(self, 'width', value)
+                    setattr(self, 'height', value)
+                else:
+                    setattr(self, key, value)
 
     def to_dictionary(self):
         """dict of the obj"""
