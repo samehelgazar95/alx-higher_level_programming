@@ -27,8 +27,9 @@ class Base:
     @classmethod
     def save_to_file(cls, list_objs):
         """ Write obj to file.json """
-        instances_to_arr = [inst.to_dictionary() for inst in list_objs]
-        content = Base.to_json_string(instances_to_arr)
-        with open(cls.__name__ + ".json", 'w') as f:
+        content = Base.to_json_string(
+            [instance.to_dictionary() for instance in list_objs]
+            )
+        file_name = cls.__name__ + ".json"
+        with open(file_name, 'w') as f:
             f.write(content)
-
