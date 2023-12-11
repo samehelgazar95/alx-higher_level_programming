@@ -30,6 +30,6 @@ class Base:
         content = Base.to_json_string(
             [instance.to_dictionary() for instance in list_objs]
             )
-        file_name = cls.__name__ + ".json"
+        file_name = "{}.json".format(cls.__name__)
         with open(file_name, 'w') as f:
             f.write(content)
