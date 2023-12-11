@@ -1,6 +1,7 @@
 #!/usr/bin/pyhon3
 """ Test Rectangle Module"""
 import unittest
+import models.rectangle
 from models.rectangle import Rectangle
 from models.base import Base
 
@@ -25,6 +26,10 @@ class TestRectangle(unittest.TestCase):
 
     def test_doc_class(self):
         self.assertTrue(len(Rectangle.__doc__) > 0)
+            
+    def test_doc_class(self):
+        self.assertTrue(len(models.rectangle.__doc__) > 0)
+    
 
     def test_is_Rectangle_class(self):
         r = Rectangle(1, 1)

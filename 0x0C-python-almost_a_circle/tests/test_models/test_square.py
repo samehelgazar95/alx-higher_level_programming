@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """ Test Square Module """
 import unittest
+import models.square
 from models.base import Base
 from models.square import Square
 from models.rectangle import Rectangle
@@ -31,6 +32,10 @@ class TestSquare(unittest.TestCase):
 
     def test_doc_class(self):
         self.assertTrue(len(Square.__doc__) > 0)
+        
+    def test_doc_class(self):
+        self.assertTrue(len(models.square.__doc__) > 0)
+    
 
     def test_is_Square_class(self):
         s = Square(1, 1)

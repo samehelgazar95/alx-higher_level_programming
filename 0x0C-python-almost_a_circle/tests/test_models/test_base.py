@@ -2,6 +2,7 @@
 """UnitTest for Base Class Module"""
 import unittest
 from models.base import Base
+import models.base
 
 
 class TestBase(unittest.TestCase):
@@ -16,6 +17,9 @@ class TestBase(unittest.TestCase):
     def test_doc_class(self):
         """ Task 1 """
         self.assertTrue(len(Base.__doc__) > 0)
+        
+    def test_doc_class(self):
+        self.assertTrue(len(models.base.__doc__) > 0)
     
     def test_is__Base_class(self):
         b = Base()
