@@ -1,1 +1,1 @@
-Yellow dog is running in an infinite cirle, also we do
+Yellow dog is walking in an infinite cirle, also we do
