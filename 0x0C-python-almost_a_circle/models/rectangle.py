@@ -1,17 +1,11 @@
 #!/usr/bin/python3
-""" 
-    Rectangle Module Document
-    Rectangle Module Document
-    Rectangle Module Document
+""" Rectangle Module Document
 """
 from models.base import Base
 
 
 class Rectangle(Base):
-    """ 
-        Rectangle Class Document
-        Rectangle Class Document
-        Rectangle Class Document
+    """ Rectangle Class Document
     """
 
     def __init__(self, width, height, x=0, y=0, id=None):
@@ -116,15 +110,15 @@ class Rectangle(Base):
         """dict of the obj"""
         my_dict = {}
 
-        if self.x:
+        if hasattr(self, 'x'):
             my_dict['x'] = self.x
-        if self.y:
+        if hasattr(self, 'y'):
             my_dict['y'] = self.y
-        if self.id:
+        if hasattr(self, 'id'):
             my_dict['id'] = self.id
-        if self.width:
+        if hasattr(self, 'width'):
             my_dict['width'] = self.width
-        if self.height:
+        if hasattr(self, 'height'):
             my_dict['height'] = self.height
 
         return (my_dict)
