@@ -1,10 +1,18 @@
 #!/usr/bin/python3
-""" Rectangle Module """
+""" 
+    Rectangle Module Document
+    Rectangle Module Document
+    Rectangle Module Document
+"""
 from models.base import Base
 
 
 class Rectangle(Base):
-    """ Rectangle Class """
+    """ 
+        Rectangle Class Document
+        Rectangle Class Document
+        Rectangle Class Document
+    """
 
     def __init__(self, width, height, x=0, y=0, id=None):
         """Constructor"""
