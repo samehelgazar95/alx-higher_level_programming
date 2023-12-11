@@ -31,5 +31,5 @@ class Base:
             [instance.to_dictionary() for instance in list_objs]
             )
         file_name = "{}.json".format(cls.__name__)
-        with open(file_name, 'w') as f:
+        with open(file_name, 'w', encoding='utf-8') as f:
             f.write(content)

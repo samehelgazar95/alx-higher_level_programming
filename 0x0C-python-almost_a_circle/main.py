@@ -7,7 +7,7 @@ if __name__ == "__main__":
 
     # r1 = Square()
     r2 = Rectangle(2, 4)
-    Rectangle.save_to_file([r2])
+    Rectangle.save_to_file([])
 
     with open("Rectangle.json", "r") as file:
         print(file.read())
