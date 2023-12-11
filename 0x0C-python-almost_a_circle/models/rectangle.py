@@ -7,6 +7,7 @@ class Rectangle(Base):
     """ Rectangle Class """
 
     def __init__(self, width, height, x=0, y=0, id=None):
+        """Constructor"""
         self.width = width
         self.height = height
         self.x = x
@@ -16,42 +17,51 @@ class Rectangle(Base):
     # Getters
     @property
     def width(self):
+        """Width getter"""
         return self.__width
 
     @property
     def height(self):
+        """height getter"""
         return self.__height
 
     @property
     def x(self):
+        """x getter"""
         return self.__x
 
     @property
     def y(self):
+        """y getter"""
         return self.__y
 
     # Setters
     @width.setter
     def width(self, val):
+        """Width setter"""
         self.validate_int("width", val)
         self.__width = val
 
     @height.setter
     def height(self, val):
+        """height setter"""
         self.validate_int("height", val)
         self.__height = val
 
     @x.setter
     def x(self, val):
+        """x setter"""
         self.validate_int("x", val, False)
         self.__x = val
 
     @y.setter
     def y(self, val):
+        """y setter"""
         self.validate_int("y", val, False)
         self.__y = val
 
     def validate_int(self, name, value, is_w_h=True):
+        """Validate the attrs"""
         if type(value) is not int:
             raise TypeError("{} must be an integer".format(name))
         elif is_w_h and value <= 0:
@@ -60,9 +70,11 @@ class Rectangle(Base):
             raise ValueError("{} must be >= 0".format(name))
 
     def area(self):
+        """area"""
         return (self.width * self.height)
 
     def display(self):
+        """display"""
         for y_axis in range(self.y):
             print("")
 
@@ -73,6 +85,7 @@ class Rectangle(Base):
             print('')
 
     def __str__(self):
+        """str overwritting"""
         i = self.id
         x = self.x
         y = self.y
@@ -82,6 +95,7 @@ class Rectangle(Base):
         return cls_str
 
     def update(self, *args, **kwargs):
+        """update"""
         if args:
             keys = ["width", "height", "x", "y", "id"]
             for i in range(min(len(args), len(keys))):
@@ -91,6 +105,7 @@ class Rectangle(Base):
                 setattr(self, key, value)
 
     def to_dictionary(self):
+        """dict of the obj"""
         my_dict = {}
 
         if self.x:

@@ -7,14 +7,17 @@ class Square(Rectangle):
     """ Square Class """
 
     def __init__(self, size, x=0, y=0, id=None):
+        """Constructor"""
         super().__init__(size, size, x, y, id)
 
     @property
     def size(self):
+        """Size Getter"""
         return self.width
 
     @size.setter
     def size(self, val):
+        """Size Setter"""
         if type(val) is not int:
             raise TypeError("width must be an integer")
         elif val <= 0:
@@ -23,6 +26,7 @@ class Square(Rectangle):
         self.height = val
 
     def __str__(self):
+        """str overwritting"""
         i = self.id
         x = self.x
         y = self.y
@@ -31,6 +35,7 @@ class Square(Rectangle):
         return cls_str
 
     def update(self, *args, **kwargs):
+        """update the object"""
         if args:
             keys = ["id", "size", "x", "y"]
             for i in range(min(len(args), len(keys))):
@@ -40,6 +45,7 @@ class Square(Rectangle):
                 setattr(self, key, value)
 
     def to_dictionary(self):
+        """dict of the obj"""
         my_dict = {}
 
         if self.x:
