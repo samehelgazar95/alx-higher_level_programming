@@ -59,13 +59,13 @@ class Square(Rectangle):
         """Generate dict for the obj"""
         my_dict = {}
 
-        if self.x:
+        if hasattr(self, 'x'):
             my_dict['x'] = self.x
-        if self.y:
+        if hasattr(self, 'y'):
             my_dict['y'] = self.y
-        if self.id:
+        if hasattr(self, 'id'):
             my_dict['id'] = self.id
-        if self.width:
+        if hasattr(self, 'width'):
             my_dict['size'] = self.size
 
         return (my_dict)
