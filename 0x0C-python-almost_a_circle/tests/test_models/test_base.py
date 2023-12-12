@@ -1,8 +1,9 @@
 #!/usr/bin/python3
-"""UnitTest for Base Class Module"""
+"""
+UnitTest for Base Class Module"""
 import unittest
 import models
-Base = models.base
+from models.base import Base
 
 
 class TestBase(unittest.TestCase):
