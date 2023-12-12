@@ -161,6 +161,11 @@ class TestRectangle(unittest.TestCase):
         msg = "y must be an integer"
         self.assertTrue(msg in str(e.exception))
 
+    def test_string_y(self):
+        """ test string y """
+        r = Rectangle(1, 2, 3, 4, 5)
+        self.assertEqual(r.id, 5)
+
 
 
 if __name__ == "__main__":
