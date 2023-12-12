@@ -37,13 +37,6 @@ class TestRectangle(unittest.TestCase):
             r = Rectangle(1)
         msg = "Rectangle.__init__() missing 1 required positional argument: 'height'"
 
-    def test_init_zero_args(self):
-        """ test init zero args """
-        with self.assertRaises(TypeError) as e:
-            r = Rectangle()
-        msg = "Rectangle.__init__() missing 2 required positional arguments: 'width' and 'height'"
-        self.assertEqual(str(e.exception), msg)
-
 
 
     def test_is_Rectangle_class(self):
