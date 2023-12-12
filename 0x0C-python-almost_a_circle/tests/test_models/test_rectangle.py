@@ -147,6 +147,19 @@ class TestRectangle(unittest.TestCase):
         msg = "height must be an integer"
         self.assertTrue(msg in str(e.exception))
 
+    def test_string_x(self):
+        """ test string x """
+        with self.assertRaises(TypeError) as e:
+            r = Rectangle(1, 1, '1')
+        msg = "x must be an integer"
+        self.assertTrue(msg in str(e.exception))
+
+    def test_string_y(self):
+        """ test string y """
+        with self.assertRaises(TypeError) as e:
+            r = Rectangle(1, 1, 1, '1')
+        msg = "y must be an integer"
+        self.assertTrue(msg in str(e.exception))
 
 
 
