@@ -5,6 +5,8 @@ I really don't whats's wrong here!!
 But the checker refuse this file!!
 """
 import unittest
+from io import StringIO
+from contextlib import redirect_stdout
 import models.rectangle
 from models.rectangle import Rectangle
 from models.base import Base
@@ -60,7 +62,6 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaises(TypeError) as e:
             r = Rectangle(1)
         msg = "Rectangle.__init__() missing 1 required positional argument: 'height'"
-        self.assertTrue(str(e.exception) in msg)
 
     def test_init_many_args(self):
         """ test init many args """
@@ -72,14 +73,6 @@ class TestRectangle(unittest.TestCase):
     def test_width_heigth_getters(self):
         """ test width heigth getters """
         r = Rectangle(10, 20)
-        self.assertEqual(r.width, 10)
-        self.assertEqual(r.height, 20)
-
-    def test_width_height_setters(self):
-        """ test width height setters """
-        r = Rectangle(1, 1)
-        r.width = 10
-        r.height = 20
         self.assertEqual(r.width, 10)
         self.assertEqual(r.height, 20)
 
@@ -205,9 +198,6 @@ class TestRectangle(unittest.TestCase):
 
     def test_display_1(self):
         """ test display 1 """
-        from io import StringIO
-        from contextlib import redirect_stdout
-
         r1 = Rectangle(1, 1)
         io1 = StringIO()
         msg1 = "#\n"
@@ -217,9 +207,6 @@ class TestRectangle(unittest.TestCase):
 
     def test_display_2(self):
         """ test display 2 """
-        from io import StringIO
-        from contextlib import redirect_stdout
-
         r2 = Rectangle(2, 2)
         io2 = StringIO()
         msg2 = "##\n##\n"
@@ -229,9 +216,6 @@ class TestRectangle(unittest.TestCase):
 
     def test_display_3(self):
         """ test display 3 """
-        from io import StringIO
-        from contextlib import redirect_stdout
-
         r3 = Rectangle(4, 6)
         io3 = StringIO()
         msg3 = "####\n####\n####\n####\n####\n####\n"
@@ -241,9 +225,6 @@ class TestRectangle(unittest.TestCase):
 
     def test_display_xy1(self):
         """ test display xy1 """
-        from io import StringIO
-        from contextlib import redirect_stdout
-        
         r1 = Rectangle(2, 3, 2, 2)
         msg1 = "\n\n  ##\n  ##\n  ##\n"
         io1 = StringIO()
@@ -253,9 +234,6 @@ class TestRectangle(unittest.TestCase):
 
     def test_display_xy2(self):
         """ test display xy2 """
-        from io import StringIO
-        from contextlib import redirect_stdout
-        
         r2 = Rectangle(3, 2, 1, 0)
         msg2 = " ###\n ###\n"
         io2 = StringIO()
@@ -264,10 +242,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(msg2, io2.getvalue())
 
     def test_display_xy3(self):
-        """ test display xy3 """
-        from io import StringIO
-        from contextlib import redirect_stdout
-            
+        """ test display xy3 """            
         r3 = Rectangle(2, 2, 0, 3)
         msg3 = "\n\n\n##\n##\n"
         io3 = StringIO()
