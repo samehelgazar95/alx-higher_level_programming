@@ -90,14 +90,63 @@ class TestRectangle(unittest.TestCase):
                     setattr(r, item, invalid)
                 self.assertEqual(msg, str(e.exception))
 
-
-
     def test_width_less_zero(self):
         """ test width less zero """
         with self.assertRaises(ValueError) as e:
             r = Rectangle(-1, 1)
         msg = "width must be > 0"
         self.assertTrue(msg in str(e.exception))
+
+    def test_height_less_zero(self):
+        """ test height less zero """
+        with self.assertRaises(ValueError) as e:
+            r = Rectangle(1, -1)
+        msg = "height must be > 0"
+        self.assertTrue(msg in str(e.exception))
+
+    def test_width_equals_zero(self):
+        """ test width equals zero """
+        with self.assertRaises(ValueError) as e:
+            r = Rectangle(0, 1)
+        msg = "width must be > 0"
+        self.assertTrue(msg in str(e.exception))
+
+    def test_height_equals_zero(self):
+        """ test height equals zero"""
+        with self.assertRaises(ValueError) as e:
+            r = Rectangle(1, 0)
+        msg = "height must be > 0"
+        self.assertTrue(msg in str(e.exception))
+
+    def test_x_less_zero(self):
+        """ test x less zero """
+        with self.assertRaises(ValueError) as e:
+            r = Rectangle(1, 1, -1, 1)
+        msg = "x must be >= 0"
+        self.assertTrue(msg in str(e.exception))
+
+    def test_y_less_zero(self):
+        """ test y less zero """
+        with self.assertRaises(ValueError) as e:
+            r = Rectangle(1, 1, 1, -1)
+        msg = "y must be >= 0"
+        self.assertTrue(msg in str(e.exception))
+
+
+    def test_string_width(self):
+        """ test string width """
+        with self.assertRaises(TypeError) as e:
+            r = Rectangle('1', 1)
+        msg = "width must be an integer"
+        self.assertTrue(msg in str(e.exception))
+
+    def test_string_height(self):
+        """ test string height """
+        with self.assertRaises(TypeError) as e:
+            r = Rectangle(1, '1')
+        msg = "height must be an integer"
+        self.assertTrue(msg in str(e.exception))
+
 
 
 
