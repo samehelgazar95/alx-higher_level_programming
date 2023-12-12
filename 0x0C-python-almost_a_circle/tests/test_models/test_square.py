@@ -79,4 +79,106 @@ class TestSquare(unittest.TestCase):
         msg = "width must be > 0"
         self.assertEqual(msg, str(e.exception))
 
-    
+    def test_update_args_1(self):
+        """ test update args 1 """
+        s = Square(5, 5, 5, 5)
+        dic = s.__dict__.copy()
+
+        s.update(2)
+        dic["id"] = 2
+        self.assertEqual(s.__dict__, dic)
+
+    def test_update_args_2(self):
+        """ test update args 1 """
+        s = Square(5, 5, 5, 5)
+        dic = s.__dict__.copy()
+
+        s.update(2, 2)
+        dic["id"] = 2
+        dic["_Rectangle__width"] = 2
+        dic["_Rectangle__height"] = 2
+        self.assertEqual(s.__dict__, dic)
+
+    def test_update_args_3(self):
+        """ test update args 1 """
+        s = Square(5, 5, 5, 5)
+        dic = s.__dict__.copy()
+
+        s.update(2, 2, 2)
+        dic["id"] = 2
+        dic["_Rectangle__width"] = 2
+        dic["_Rectangle__height"] = 2
+        dic["_Rectangle__x"] = 2
+        self.assertEqual(s.__dict__, dic)
+
+    def test_update_args_4(self):
+        """ test update args 1 """
+        s = Square(5, 5, 5, 5)
+        dic = s.__dict__.copy()
+
+        s.update(2, 2, 2, 2)
+        dic["id"] = 2
+        dic["_Rectangle__width"] = 2
+        dic["_Rectangle__height"] = 2
+        dic["_Rectangle__x"] = 2
+        dic["_Rectangle__y"] = 2
+        self.assertEqual(s.__dict__, dic)
+
+    def test_update_args_5(self):
+        """ test update args 1 """
+        s = Square(5, 5, 5, 5)
+        dic = s.__dict__.copy()
+
+        s.update(2, 2, 2, 2)
+        dic["id"] = 2
+        dic["_Rectangle__width"] = 2
+        dic["_Rectangle__height"] = 2
+        dic["_Rectangle__x"] = 2
+        dic["_Rectangle__y"] = 2
+        self.assertEqual(s.__dict__, dic)
+
+    def test_update_kwargs_1(self):
+        """ test update args 1 """
+        s = Square(5, 5, 5, 5)
+        dic = s.__dict__.copy()
+
+        s.update(**{'id': 2})
+        dic["id"] = 2
+        self.assertEqual(s.__dict__, dic)
+
+    def test_update_kwargs_2(self):
+        """ test update args 1 """
+        s = Square(5, 5, 5, 5)
+        dic = s.__dict__.copy()
+
+        s.update(**{'id': 2, 'size': 2})
+        dic["id"] = 2
+        dic["_Rectangle__width"] = 2
+        dic["_Rectangle__height"] = 2
+        self.assertEqual(s.__dict__, dic)
+
+    def test_update_kwargs_3(self):
+        """ test update args 1 """
+        s = Square(5, 5, 5, 5)
+        dic = s.__dict__.copy()
+
+        s.update(**{'id': 2, 'size': 2, 'x': 2})
+        dic["id"] = 2
+        dic["_Rectangle__width"] = 2
+        dic["_Rectangle__height"] = 2
+        dic["_Rectangle__x"] = 2
+        self.assertEqual(s.__dict__, dic)
+
+    def test_update_kwargs_4(self):
+        """ test update args 1 """
+        s = Square(5, 5, 5, 5)
+        dic = s.__dict__.copy()
+     
+        s.update(**{'id': 2, 'size': 2, 'x': 2, 'y': 2})
+        dic["id"] = 2
+        dic["_Rectangle__width"] = 2
+        dic["_Rectangle__height"] = 2
+        dic["_Rectangle__x"] = 2
+        dic["_Rectangle__y"] = 2
+        self.assertEqual(s.__dict__, dic)
+
