@@ -2,7 +2,7 @@
 """UnitTest for Base Class Module"""
 import unittest
 import models
-from models.base import Base
+Base = models.base
 
 
 class TestBase(unittest.TestCase):
