@@ -248,13 +248,12 @@ class TestRectangle(unittest.TestCase):
         dic["_Rectangle__y"] = 2
         self.assertEqual(r.__dict__, dic)
 
-
     def test_update_args_1(self):
         """ test update args 1 """
         r = Rectangle(5, 5, 5, 5, 5)
         dic = r.__dict__.copy()
 
-        r.update(2)
+        r.update(**{'id': 2})
         dic["id"] = 2
         self.assertEqual(r.__dict__, dic)
 
@@ -263,7 +262,7 @@ class TestRectangle(unittest.TestCase):
         r = Rectangle(5, 5, 5, 5, 5)
         dic = r.__dict__.copy()
 
-        r.update(2, 2)
+        r.update(**{'id': 2, 'width': 2})
         dic["_Rectangle__width"] = 2
         dic["id"] = 2
         self.assertEqual(r.__dict__, dic)
@@ -273,7 +272,7 @@ class TestRectangle(unittest.TestCase):
         r = Rectangle(5, 5, 5, 5, 5)
         dic = r.__dict__.copy()
 
-        r.update(2, 2, 2)
+        r.update(**{'id': 2, 'width': 2, 'height': 2})
         dic["_Rectangle__width"] = 2
         dic["_Rectangle__height"] = 2
         dic["id"] = 2
@@ -284,7 +283,7 @@ class TestRectangle(unittest.TestCase):
         r = Rectangle(5, 5, 5, 5, 5)
         dic = r.__dict__.copy()
 
-        r.update(2, 2, 2, 2)
+        r.update(**{'id': 2, 'width': 2, 'height': 2, 'x': 2})
         dic["id"] = 2
         dic["_Rectangle__width"] = 2
         dic["_Rectangle__height"] = 2
@@ -296,7 +295,7 @@ class TestRectangle(unittest.TestCase):
         r = Rectangle(5, 5, 5, 5, 5)
         dic = r.__dict__.copy()
 
-        r.update(2, 2, 2, 2, 2)
+        r.update(**{'id': 2, 'width': 2, 'height': 2, 'x': 2, 'y': 2})
         dic["id"] = 2
         dic["_Rectangle__width"] = 2
         dic["_Rectangle__height"] = 2
@@ -305,7 +304,10 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r.__dict__, dic)
 
 
-
+    def test_create1(self):
+        r = Rectangle.create(**{'id':2, 'width':2, 'height':2})
+        r_str = "[Rectangle] (2) 0/0 - 2/2"
+        self.assertEqual(str(r), r_str)
   
   
 if __name__ == "__main__":
