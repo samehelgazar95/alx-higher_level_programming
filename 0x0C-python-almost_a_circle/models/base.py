@@ -36,7 +36,7 @@ class Base:
 
     @staticmethod
     def from_json_string(json_string):
-        """ returns list from json """
+        """ returns list of dicts from json """
         if json_string is None:
             return []
         else:
@@ -48,3 +48,17 @@ class Base:
         dummy = cls(1, 1)
         dummy.update(**dictionary)
         return dummy
+
+    @classmethod
+    def load_from_file(cls):
+        """ create instances from json file """
+        instances = []
+
+        file_name = "{}.json".format(cls.__name__)
+        with open(file_name, 'r') as f:
+            dicts = cls.from_json_string(f.read())
+
+        for dict in dicts:
+            instances.append(cls.create(**dict))
+
+        return instances
