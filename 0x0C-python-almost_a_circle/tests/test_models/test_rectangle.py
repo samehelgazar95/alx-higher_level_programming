@@ -104,20 +104,6 @@ class TestRectangle(unittest.TestCase):
         msg = "height must be > 0"
         self.assertTrue(msg in str(e.exception))
 
-    def test_width_equals_zero(self):
-        """ test width equals zero """
-        with self.assertRaises(ValueError) as e:
-            r = Rectangle(0, 1)
-        msg = "width must be > 0"
-        self.assertTrue(msg in str(e.exception))
-
-    def test_height_equals_zero(self):
-        """ test height equals zero"""
-        with self.assertRaises(ValueError) as e:
-            r = Rectangle(1, 0)
-        msg = "height must be > 0"
-        self.assertTrue(msg in str(e.exception))
-
     def test_x_less_zero(self):
         """ test x less zero """
         with self.assertRaises(ValueError) as e:
@@ -132,6 +118,19 @@ class TestRectangle(unittest.TestCase):
         msg = "y must be >= 0"
         self.assertTrue(msg in str(e.exception))
 
+    def test_width_equals_zero(self):
+        """ test width equals zero """
+        with self.assertRaises(ValueError) as e:
+            r = Rectangle(0, 1)
+        msg = "width must be > 0"
+        self.assertTrue(msg in str(e.exception))
+
+    def test_height_equals_zero(self):
+        """ test height equals zero"""
+        with self.assertRaises(ValueError) as e:
+            r = Rectangle(1, 0)
+        msg = "height must be > 0"
+        self.assertTrue(msg in str(e.exception))
 
     def test_string_width(self):
         """ test string width """
@@ -165,6 +164,19 @@ class TestRectangle(unittest.TestCase):
         """ test string y """
         r = Rectangle(1, 2, 3, 4, 5)
         self.assertEqual(r.id, 5)
+        
+    def test_area_1(self):
+        """ test area 1 """
+        r1 = Rectangle(3, 2)
+        self.assertEqual(r1.area(), 6)
+        
+    def test_area_2(self):
+        """ test area 2 """
+        r2 = Rectangle(8, 7, 0, 0, 12)
+        self.assertEqual(r2.area(), 56)
+        
+
+
 
 
 
