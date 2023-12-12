@@ -15,6 +15,7 @@ class TestRectangle(unittest.TestCase):
 
     def setUp(self):
         '''Imports module, instantiates class'''
+        Rectangle._Base__nb_objects = 0
         Base._Base__nb_objects = 0
         pass
 
