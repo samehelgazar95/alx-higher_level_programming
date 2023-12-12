@@ -160,10 +160,10 @@ class TestRectangle(unittest.TestCase):
         msg = "y must be an integer"
         self.assertTrue(msg in str(e.exception))
 
-    def test_string_y(self):
-        """ test string y """
+    def test_instance(self):
+        """ test instance """
         r = Rectangle(1, 2, 3, 4, 5)
-        self.assertEqual(r.id, 5)
+        self.assertEqual(str(r), "[Rectangle] (5) 3/4 - 1/2")
         
     def test_area_1(self):
         """ test area 1 """
@@ -174,9 +174,24 @@ class TestRectangle(unittest.TestCase):
         """ test area 2 """
         r2 = Rectangle(8, 7, 0, 0, 12)
         self.assertEqual(r2.area(), 56)
-        
 
+    def test_display_1(self):
+        """ test display 1 """
+        r1 = Rectangle(1, 1)
+        io1 = StringIO()
+        msg1 = "#\n"
+        with redirect_stdout(io1):
+            r1.display()
+        self.assertEqual(msg1, io1.getvalue())
 
+    def test_display_no_y(self):
+        """ test display no y """
+        r2 = Rectangle(3, 2, 1)
+        msg2 = " ###\n ###\n"
+        io2 = StringIO()
+        with redirect_stdout(io2):
+            r2.display()
+        self.assertEqual(msg2, io2.getvalue())
 
 
 
