@@ -25,10 +25,18 @@ class TestRectangle(unittest.TestCase):
         r = Rectangle(1, 1)
         self.assertTrue(isinstance(r, Base))
 
-
     def test_doc_class(self):
         """ test doc class """
         self.assertTrue(len(models.rectangle.__doc__) > 0)
+
+
+    def test_init_zero_args(self):
+        """ test init zero args """
+        with self.assertRaises(Exception) as e:
+            r = Rectangle()
+        msg = "Rectangle.__init__() missing 2 required positional arguments: 'width' and 'height'"
+        self.assertEqual(str(e.exception), msg)
+
 
 
     def test_is_Rectangle_class(self):
