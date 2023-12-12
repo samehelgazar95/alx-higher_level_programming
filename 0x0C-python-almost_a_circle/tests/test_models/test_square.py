@@ -182,3 +182,22 @@ class TestSquare(unittest.TestCase):
         dic["_Rectangle__y"] = 2
         self.assertEqual(s.__dict__, dic)
 
+    def test_create1(self):
+        s = Square.create(**{'id':2})
+        s_str = "[Square] (2) 0/0 - 1"
+        self.assertEqual(str(s), s_str)
+  
+    def test_create2(self):
+        s = Square.create(**{'id':2, 'size':2})
+        s_str = "[Square] (2) 0/0 - 2"
+        self.assertEqual(str(s), s_str)
+        
+    def test_create3(self):
+        s = Square.create(**{'id':2, 'size':2, 'x':2})
+        s_str = "[Square] (2) 2/0 - 2"
+        self.assertEqual(str(s), s_str)
+  
+    def test_create4(self):
+        s = Square.create(**{'id':2, 'size':2, 'x':2, 'y':2})
+        s_str = "[Square] (2) 2/2 - 2"
+        self.assertEqual(str(s), s_str)
