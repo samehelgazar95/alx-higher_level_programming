@@ -104,19 +104,16 @@ class Rectangle(Base):
         cls_str = "[Rectangle] ({}) {}/{} - {}/{}".format(i, x, y, w, h)
         return cls_str
 
-    def update(self, *args, **kwargs):
+    def update(self, *args):
         """ Update the rectangle with new values
             Args:
                 args: the array of strings
                 kwargs: the dict of args
         """
-        if args:
-            keys = ["width", "height", "x", "y", "id"]
-            for i in range(min(len(args), len(keys))):
-                setattr(self, keys[i], args[i])
-        elif kwargs:
-            for key, value in kwargs.items():
-                setattr(self, key, value)
+        keys = ["id", "width", "height", "x", "y"]
+        for i in range(min(len(args), len(keys))):
+            setattr(self, keys[i], args[i])
+
 
     def to_dictionary(self):
         """ Generate dict for the obj """
