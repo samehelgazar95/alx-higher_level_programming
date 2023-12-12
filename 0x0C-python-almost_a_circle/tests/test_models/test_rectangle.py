@@ -305,6 +305,11 @@ class TestRectangle(unittest.TestCase):
 
 
     def test_create1(self):
+        r = Rectangle.create(**{'id':2})
+        r_str = "[Rectangle] (2) 0/0 - 0/0"
+        self.assertEqual(str(r), r_str)
+  
+    def test_create2(self):
         r = Rectangle.create(**{'id':2, 'width':2, 'height':2})
         r_str = "[Rectangle] (2) 0/0 - 2/2"
         self.assertEqual(str(r), r_str)
