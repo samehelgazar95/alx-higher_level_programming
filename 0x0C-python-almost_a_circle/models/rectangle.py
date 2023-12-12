@@ -114,7 +114,6 @@ class Rectangle(Base):
         for i in range(min(len(args), len(keys))):
             setattr(self, keys[i], args[i])
 
-
     def to_dictionary(self):
         """ Generate dict for the obj """
         my_dict = {}
