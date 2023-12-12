@@ -10,6 +10,7 @@ class TestBase(unittest.TestCase):
     """UnitTest for Base Class Class"""
 
     def setUp(self):
+        '''Imports module, instantiates class'''
         Base._Base__nb_objects = 0
         pass
 
