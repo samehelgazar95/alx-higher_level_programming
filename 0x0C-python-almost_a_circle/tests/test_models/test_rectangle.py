@@ -306,14 +306,31 @@ class TestRectangle(unittest.TestCase):
 
     def test_create1(self):
         r = Rectangle.create(**{'id':2})
-        r_str = "[Rectangle] (2) 0/0 - 0/0"
+        r_str = "[Rectangle] (2) 0/0 - 1/1"
         self.assertEqual(str(r), r_str)
   
     def test_create2(self):
+        r = Rectangle.create(**{'id':2, 'width':2})
+        r_str = "[Rectangle] (2) 0/0 - 2/1"
+        self.assertEqual(str(r), r_str)
+        
+    def test_create3(self):
         r = Rectangle.create(**{'id':2, 'width':2, 'height':2})
         r_str = "[Rectangle] (2) 0/0 - 2/2"
         self.assertEqual(str(r), r_str)
   
+    def test_create4(self):
+        r = Rectangle.create(**{'id':2, 'width':2, 'height':2, 'x':1})
+        r_str = "[Rectangle] (2) 1/0 - 2/2"
+        self.assertEqual(str(r), r_str)
   
+    def test_create5(self):
+        r = Rectangle.create(**{'id':2, 'width':2, 'height':2, 'x':1, 'y':1})
+        r_str = "[Rectangle] (2) 1/1 - 2/2"
+        self.assertEqual(str(r), r_str)
+  
+
+    
+    
 if __name__ == "__main__":
     unittest.main()
