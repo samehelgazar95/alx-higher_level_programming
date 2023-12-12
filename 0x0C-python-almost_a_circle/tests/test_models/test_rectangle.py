@@ -25,6 +25,12 @@ class TestRectangle(unittest.TestCase):
         r = Rectangle(1, 1)
         self.assertTrue(isinstance(r, Base))
 
+
+    def test_doc_class(self):
+        """ test doc class """
+        self.assertTrue(len(models.rectangle.__doc__) > 0)
+
+
     def test_is_Rectangle_class(self):
         """ test is Rectangle class """
         self.assertTrue(str(Rectangle), "<class 'models.rectangle.Rectangle'>")
