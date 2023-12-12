@@ -9,7 +9,15 @@ class Rectangle(Base):
     """
 
     def __init__(self, width, height, x=0, y=0, id=None):
-        """Constructor"""
+        """ Main Constructor for the Rectangle class
+
+            Args:
+            width: the width
+            hight: the height
+            x: x-axis
+            y: y-axis
+            id: id of the instance
+        """
         super().__init__(id)
         self.width = width
         self.height = height
@@ -63,7 +71,7 @@ class Rectangle(Base):
         self.__y = val
 
     def validate_int(self, name, value, is_w_h=True):
-        """Validate the attrs"""
+        """Validate the attrs before setting"""
         if type(value) is not int:
             raise TypeError("{} must be an integer".format(name))
         elif is_w_h and value <= 0:
@@ -72,11 +80,11 @@ class Rectangle(Base):
             raise ValueError("{} must be >= 0".format(name))
 
     def area(self):
-        """area"""
+        """ Calc area of the rectangle"""
         return (self.width * self.height)
 
     def display(self):
-        """display"""
+        """ Display the rectangle using # """
         for y_axis in range(self.y):
             print("")
 
@@ -87,7 +95,7 @@ class Rectangle(Base):
             print('')
 
     def __str__(self):
-        """str overwritting"""
+        """ str overwritting function"""
         i = self.id
         x = self.x
         y = self.y
@@ -97,7 +105,11 @@ class Rectangle(Base):
         return cls_str
 
     def update(self, *args, **kwargs):
-        """update"""
+        """ Update the rectangle with new values
+            Args:
+                args: the array of strings
+                kwargs: the dict of args
+        """
         if args:
             keys = ["width", "height", "x", "y", "id"]
             for i in range(min(len(args), len(keys))):
@@ -107,7 +119,7 @@ class Rectangle(Base):
                 setattr(self, key, value)
 
     def to_dictionary(self):
-        """dict of the obj"""
+        """ Generate dict for the obj """
         my_dict = {}
 
         if hasattr(self, 'x'):

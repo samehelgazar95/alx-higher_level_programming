@@ -7,7 +7,14 @@ class Square(Rectangle):
     """ Square Class """
 
     def __init__(self, size, x=0, y=0, id=None):
-        """Constructor"""
+        """ Main Constructor for the Square class
+
+            Args:
+            size: the size
+            x: x-axis
+            y: y-axis
+            id: id of the instance
+        """
         super().__init__(size, size, x, y, id)
 
     @property
@@ -26,7 +33,7 @@ class Square(Rectangle):
         self.height = val
 
     def __str__(self):
-        """str overwritting"""
+        """str overwritting function"""
         i = self.id
         x = self.x
         y = self.y
@@ -35,7 +42,11 @@ class Square(Rectangle):
         return cls_str
 
     def update(self, *args, **kwargs):
-        """update the object"""
+        """ Update the object with new values
+            Args:
+                args: the array of strings
+                kwargs: the dict of args
+        """
         if args:
             keys = ["id", "size", "x", "y"]
             for i in range(min(len(args), len(keys))):
@@ -45,7 +56,7 @@ class Square(Rectangle):
                 setattr(self, key, value)
 
     def to_dictionary(self):
-        """dict of the obj"""
+        """Generate dict for the obj"""
         my_dict = {}
 
         if self.x:
