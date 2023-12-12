@@ -193,7 +193,129 @@ class TestRectangle(unittest.TestCase):
             r2.display()
         self.assertEqual(msg2, io2.getvalue())
 
+    def test_class_udpate(self):
+        """ test class udpate """
+        with self.assertRaises(TypeError) as e:
+            Rectangle.update()
+        msg = "Rectangle.update() missing 1 required positional argument: 'self'"
+        self.assertEqual(str(e.exception), msg)
+    
+    def test_update_args_1(self):
+        """ test update args 1 """
+        r = Rectangle(5, 5, 5, 5, 5)
+        dic = r.__dict__.copy()
+
+        r.update(2)
+        dic["id"] = 2
+        self.assertEqual(r.__dict__, dic)
+
+    def test_update_args_2(self):
+        """ test update args 1 """
+        r = Rectangle(5, 5, 5, 5, 5)
+        dic = r.__dict__.copy()
+
+        r.update(2, 2)
+        dic["_Rectangle__width"] = 2
+        dic["id"] = 2
+        self.assertEqual(r.__dict__, dic)
+
+    def test_update_args_3(self):
+        """ test update args 1 """
+        r = Rectangle(5, 5, 5, 5, 5)
+        dic = r.__dict__.copy()
+
+        r.update(2, 2, 2)
+        dic["_Rectangle__width"] = 2
+        dic["_Rectangle__height"] = 2
+        dic["id"] = 2
+        self.assertEqual(r.__dict__, dic)
+
+    def test_update_args_4(self):
+        """ test update args 1 """
+        r = Rectangle(5, 5, 5, 5, 5)
+        dic = r.__dict__.copy()
+
+        r.update(2, 2, 2, 2)
+        dic["id"] = 2
+        dic["_Rectangle__width"] = 2
+        dic["_Rectangle__height"] = 2
+        dic["_Rectangle__x"] = 2
+        self.assertEqual(r.__dict__, dic)
+
+    def test_update_args_4(self):
+        """ test update args 1 """
+        r = Rectangle(5, 5, 5, 5, 5)
+        dic = r.__dict__.copy()
+
+        r.update(2, 2, 2, 2, 2)
+        dic["id"] = 2
+        dic["_Rectangle__width"] = 2
+        dic["_Rectangle__height"] = 2
+        dic["_Rectangle__x"] = 2
+        dic["_Rectangle__y"] = 2
+        self.assertEqual(r.__dict__, dic)
 
 
+
+
+    def test_update_args_1(self):
+        """ test update args 1 """
+        r = Rectangle(5, 5, 5, 5, 5)
+        dic = r.__dict__.copy()
+
+        r.update(**{'id': 2})
+        dic["id"] = 2
+        self.assertEqual(r.__dict__, dic)
+
+    def test_update_args_2(self):
+        """ test update args 1 """
+        r = Rectangle(5, 5, 5, 5, 5)
+        dic = r.__dict__.copy()
+
+        r.update(**{'id': 2, 'width': 2})
+        dic["_Rectangle__width"] = 2
+        dic["id"] = 2
+        self.assertEqual(r.__dict__, dic)
+
+    def test_update_args_3(self):
+        """ test update args 1 """
+        r = Rectangle(5, 5, 5, 5, 5)
+        dic = r.__dict__.copy()
+
+        r.update(**{'id': 2, 'width': 2, 'height': 2})
+        dic["_Rectangle__width"] = 2
+        dic["_Rectangle__height"] = 2
+        dic["id"] = 2
+        self.assertEqual(r.__dict__, dic)
+
+    def test_update_args_4(self):
+        """ test update args 1 """
+        r = Rectangle(5, 5, 5, 5, 5)
+        dic = r.__dict__.copy()
+
+        r.update(**{'id': 2, 'width': 2, 'height': 2, 'x': 2})
+        dic["id"] = 2
+        dic["_Rectangle__width"] = 2
+        dic["_Rectangle__height"] = 2
+        dic["_Rectangle__x"] = 2
+        self.assertEqual(r.__dict__, dic)
+
+    def test_update_args_4(self):
+        """ test update args 1 """
+        r = Rectangle(5, 5, 5, 5, 5)
+        dic = r.__dict__.copy()
+
+        r.update(**{'id': 2, 'width': 2, 'height': 2, 'x': 2, 'y': 2})
+        dic["id"] = 2
+        dic["_Rectangle__width"] = 2
+        dic["_Rectangle__height"] = 2
+        dic["_Rectangle__x"] = 2
+        dic["_Rectangle__y"] = 2
+        self.assertEqual(r.__dict__, dic)
+
+
+
+  
+  
 if __name__ == "__main__":
     unittest.main()
