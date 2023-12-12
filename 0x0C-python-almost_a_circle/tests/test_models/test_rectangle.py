@@ -73,9 +73,6 @@ class TestRectangle(unittest.TestCase):
         rr = Rectangle(1, 1)
         self.assertEqual(r.id + 1, rr.id)
 
-
-
-
     def invalid_values(self):
         """ invalid values """
         invalids = (3.14, -3.14, float('inf'), float('-inf'), True,
@@ -93,6 +90,14 @@ class TestRectangle(unittest.TestCase):
                     setattr(r, item, invalid)
                 self.assertEqual(msg, str(e.exception))
 
+
+
+    def test_width_less_zero(self):
+        """ test width less zero """
+        with self.assertRaises(ValueError) as e:
+            r = Rectangle(-1, 1)
+        msg = "width must be > 0"
+        self.assertTrue(msg in str(e.exception))
 
 
 
