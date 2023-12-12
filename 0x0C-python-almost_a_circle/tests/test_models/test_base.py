@@ -66,10 +66,12 @@ class TestBase(unittest.TestCase):
         b = Base(13)
         self.assertEqual(b.id, 13)
 
-    def test_negative_id(self):        
+    def test_negative_id(self):
+        """ test negative id """        
         b = Base(-5)
         self.assertEqual(b.id, -5)
     
     def test_none_id(self):
+        """ test none id """
         b = Base(None)
         self.assertEqual(b.id, 1) 
