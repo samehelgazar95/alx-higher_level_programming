@@ -10,9 +10,12 @@ class TestRectangle(unittest.TestCase):
     """ Test Rectangle Class"""
 
     def setUp(self):
+        '''Imports module, instantiates class'''
         Base._Base__nb_objects = 0
+        pass
 
     def tearDown(self):
+        '''Cleans up after each test_method.'''
         pass
 
 
@@ -365,7 +368,7 @@ class TestRectangle(unittest.TestCase):
         r = Rectangle(1, 1)
         with self.assertRaises(ValueError) as e:
             r.update(1, -2, 2)
-            
+
         msg = "width must be > 0"
         self.assertEqual(msg, str(e.exception))
 
