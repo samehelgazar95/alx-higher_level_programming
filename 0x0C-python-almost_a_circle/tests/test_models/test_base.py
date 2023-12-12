@@ -15,7 +15,7 @@ class TestBase(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_doc_class(self):
+    def test_doc_module(self):
         """ Task 1 """
         self.assertTrue(len(Base.__doc__) > 0)
         

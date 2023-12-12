@@ -268,27 +268,29 @@ class TestRectangle(unittest.TestCase):
         r = Rectangle(1, 1)
         dic = r.__dict__.copy()
 
-        r.update(2, 2)
+        r.update(2, 2, 3)
         dic["_Rectangle__width"] = 2
-        dic["_Rectangle__height"] = 2
+        dic["_Rectangle__height"] = 3
+        dic["id"] = 2
         self.assertEqual(r.__dict__, dic)
 
     def test_update_args_2(self):
         r = Rectangle(1, 1)
         dic = r.__dict__.copy()
 
-        r.update(3, 3, 3, 3)
+        r.update(3, 3, 3, 3, 3)
         dic["_Rectangle__width"] = 3
         dic["_Rectangle__height"] = 3
         dic["_Rectangle__x"] = 3    
         dic["_Rectangle__y"] = 3
+        dic["id"] = 3
         self.assertEqual(r.__dict__, dic)
 
     def test_update_arg_3(self):
         r = Rectangle(1, 1)
         dic = r.__dict__.copy()
 
-        r.update(4, 4, 4, 4, 5)
+        r.update(5, 4, 4, 4, 4)
         dic["_Rectangle__width"] = 4
         dic["_Rectangle__height"] = 4
         dic["_Rectangle__x"] = 4
@@ -346,7 +348,7 @@ class TestRectangle(unittest.TestCase):
     def test_update_to_negative_x(self):
         r = Rectangle(1, 1)
         with self.assertRaises(ValueError) as e:
-            r.update(2, 2, -1)
+            r.update(2, 1, 2, -1)
             
         msg = "x must be >= 0"
         self.assertEqual(msg, str(e.exception))
@@ -354,7 +356,7 @@ class TestRectangle(unittest.TestCase):
     def test_update_to_negative_y(self):
         r = Rectangle(1, 1)
         with self.assertRaises(ValueError) as e:
-            r.update(2, 2, 2, -1)
+            r.update(1, 2, 2, 2, -1)
             
         msg = "y must be >= 0"
         self.assertEqual(msg, str(e.exception))
@@ -362,7 +364,7 @@ class TestRectangle(unittest.TestCase):
     def test_update_to_negative_width(self):
         r = Rectangle(1, 1)
         with self.assertRaises(ValueError) as e:
-            r.update(-2, 2)
+            r.update(1, -2, 2)
             
         msg = "width must be > 0"
         self.assertEqual(msg, str(e.exception))
