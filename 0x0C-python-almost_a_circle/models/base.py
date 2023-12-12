@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """ Base Module """
 import json
+import os
 
 
 class Base:
@@ -55,10 +56,11 @@ class Base:
         instances = []
 
         file_name = "{}.json".format(cls.__name__)
-        with open(file_name, 'r') as f:
-            dicts = cls.from_json_string(f.read())
+        if os.path.exists(file_name):
+            with open(file_name, 'r') as f:
+                dicts = cls.from_json_string(f.read())
 
-        for dict in dicts:
-            instances.append(cls.create(**dict))
+            for dict in dicts:
+                instances.append(cls.create(**dict))
 
         return instances
