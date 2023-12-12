@@ -28,6 +28,36 @@ class TestRectangle(unittest.TestCase):
         """ test is inheritance """
         self.assertTrue(issubclass(Rectangle, Base))
 
+    def test_width_heigth_getters(self):
+        """ test width heigth getters """
+        r = Rectangle(10, 20)
+        self.assertEqual(r.width, 10)
+        self.assertEqual(r.height, 20)
+
+    def test_getters_x_y(self):
+        """ test getters x y """
+        r = Rectangle(1, 1, 15, 20)
+        self.assertEqual(15, r.x)
+        self.assertEqual(20, r.y)
+
+    def test_initiate_Rectangle(self):
+        """ test initiate Rectangle """
+        r = Rectangle(1, 1, 2)
+        self.assertEqual(r.id, 1)
+
+    def test_three_initiate(self):
+        """ test three initiate """
+        r = Rectangle(1, 1)
+        rr = Rectangle(1, 1, 1, 2, 5)
+        rrr = Rectangle(1, 1)
+        self.assertEqual(r.id + 1, rrr.id)
+
+    def test_two_initiate(self):
+        """ test two initiate """
+        r = Rectangle(1, 1)
+        rr = Rectangle(1, 1)
+        self.assertEqual(r.id + 1, rr.id)
+
 
 if __name__ == "__main__":
     unittest.main()
