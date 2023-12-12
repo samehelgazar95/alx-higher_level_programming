@@ -34,48 +34,48 @@ class TestSquare(unittest.TestCase):
                 
     def test_string_size(self):
         with self.assertRaises(TypeError) as e:
-            r = Square('1')
+            s = Square('1')
         msg = "width must be an integer"
         self.assertEqual(msg, str(e.exception))
 
 
     def test_string_x(self):
         with self.assertRaises(TypeError) as e:
-            r = Square(1, '1')
+            s = Square(1, '1')
         msg = "x must be an integer"
         self.assertTrue(msg in str(e.exception))
 
     def test_string_y(self):
         with self.assertRaises(TypeError) as e:
-            r = Square(1, 1, '1')
+            s = Square(1, 1, '1')
         msg = "y must be an integer"
         self.assertTrue(msg in str(e.exception))
 
     def test_instance(self):
-        r = Square(1, 2, 3, 4)
-        self.assertEqual(str(r), "[Square] (4) 2/3 - 1")
+        s = Square(1, 2, 3, 4)
+        self.assertEqual(str(s), "[Square] (4) 2/3 - 1")
         
     def test_negative_size(self):
         with self.assertRaises(ValueError) as e:
-            r = Square(-1)
+            s = Square(-1)
         msg = "width must be > 0"
         self.assertTrue(msg in str(e.exception))
 
     def test_negative_x(self):
         with self.assertRaises(ValueError) as e:
-            r = Square(1, -1)
+            s = Square(1, -1)
         msg = "x must be >= 0"
         self.assertTrue(msg in str(e.exception))
 
     def test_negative_y(self):
         with self.assertRaises(ValueError) as e:
-            r = Square(1, 1, -1)
+            s = Square(1, 1, -1)
         msg = "y must be >= 0"
         self.assertTrue(msg in str(e.exception))
 
     def test_negative_size(self):
         with self.assertRaises(ValueError) as e:
-            r = Square(0)
+            s = Square(0)
         msg = "width must be > 0"
         self.assertEqual(msg, str(e.exception))
 
@@ -112,19 +112,6 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(s.__dict__, dic)
 
     def test_update_args_4(self):
-        """ test update args 1 """
-        s = Square(5, 5, 5, 5)
-        dic = s.__dict__.copy()
-
-        s.update(2, 2, 2, 2)
-        dic["id"] = 2
-        dic["_Rectangle__width"] = 2
-        dic["_Rectangle__height"] = 2
-        dic["_Rectangle__x"] = 2
-        dic["_Rectangle__y"] = 2
-        self.assertEqual(s.__dict__, dic)
-
-    def test_update_args_5(self):
         """ test update args 1 """
         s = Square(5, 5, 5, 5)
         dic = s.__dict__.copy()
