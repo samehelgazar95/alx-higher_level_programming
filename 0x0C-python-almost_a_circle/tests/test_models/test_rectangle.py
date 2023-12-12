@@ -431,3 +431,7 @@ class TestRectangle(unittest.TestCase):
         rr.update(**dic)
         r.update(2, 2, 2, 2)
         self.assertFalse(r.to_dictionary() == rr.to_dictionary())
+
+
+if __name__ == "__main__":
+    unittest.main()
