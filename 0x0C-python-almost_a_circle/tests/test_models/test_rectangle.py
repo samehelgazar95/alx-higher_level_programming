@@ -328,8 +328,6 @@ class TestRectangle(unittest.TestCase):
         r = Rectangle.create(**{'id':2, 'width':2, 'height':2, 'x':1, 'y':1})
         r_str = "[Rectangle] (2) 1/1 - 2/2"
         self.assertEqual(str(r), r_str)
-  
-
     
     
 if __name__ == "__main__":
