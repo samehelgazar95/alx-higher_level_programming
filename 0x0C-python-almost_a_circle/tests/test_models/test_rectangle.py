@@ -2,8 +2,9 @@
 '''Module for Rectangle unit tests.'''
 import unittest
 from io import StringIO
-from random import randrange
 from contextlib import redirect_stdout
+import os
+import json
 from models.base import Base
 from models.rectangle import Rectangle
 import models.rectangle
@@ -303,7 +304,6 @@ class TestRectangle(unittest.TestCase):
         dic["_Rectangle__y"] = 2
         self.assertEqual(r.__dict__, dic)
 
-
     def test_create1(self):
         r = Rectangle.create(**{'id':2})
         r_str = "[Rectangle] (2) 0/0 - 1/1"
@@ -328,6 +328,30 @@ class TestRectangle(unittest.TestCase):
         r = Rectangle.create(**{'id':2, 'width':2, 'height':2, 'x':1, 'y':1})
         r_str = "[Rectangle] (2) 1/1 - 2/2"
         self.assertEqual(str(r), r_str)
+    
+    def test_save_to_file1(self): 
+        Rectangle.save_to_file([Rectangle(1, 2)])
+        with open("Rectangle.json", 'r') as f:
+            file_content = f.read()
+            os.remove("Rectangle.json")
+            expected_content = [{'x':0, 'y':0, 'id':1, 'width': 1, 'height':2}]
+            self.assertEqual(file_content, json.dumps(expected_content))        
+    
+    def test_save_to_file2(self):
+        Rectangle.save_to_file(None)
+        with open("Rectangle.json", 'r') as f:
+            file_content = f.read()
+            os.remove("Rectangle.json")
+            expected_content = []
+            self.assertEqual(file_content, json.dumps(expected_content))        
+    
+    def test_save_to_file3(self):
+        Rectangle.save_to_file([])
+        with open("Rectangle.json", 'r') as f:
+            file_content = f.read()
+            os.remove("Rectangle.json")
+            expected_content = []
+            self.assertEqual(file_content, json.dumps(expected_content))        
     
     
 if __name__ == "__main__":
