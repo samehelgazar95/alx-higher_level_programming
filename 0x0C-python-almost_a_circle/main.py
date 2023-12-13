@@ -1,10 +1,11 @@
 #!/usr/bin/python3
-""" 17-main """
+""" 15-main """
 from models.square import Square
 
 if __name__ == "__main__":
 
-    r1 = Square(3, 5, 1)
-    r1.update(2)
+    r1 = Square(1)
+    Square.save_to_file([r1])
 
-    print(Square.__dict__)
+    with open("Square.json", "r") as file:
+        print(file.read())
