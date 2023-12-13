@@ -195,7 +195,7 @@ class TestSquare(unittest.TestCase):
         with open("Square.json", 'r') as f:
             file_content = f.read()
             os.remove("Square.json")
-            expected_content = [{"size":1}]
+            expected_content = [{"size":1, 'x':0, 'y':0, 'id':1}]
             self.assertEqual(file_content, json.dumps(expected_content))        
     
     def test_save_to_file2(self):
@@ -214,3 +214,5 @@ class TestSquare(unittest.TestCase):
             expected_content = []
             self.assertEqual(file_content, json.dumps(expected_content))        
     
+if __name__ == "__main__":
+    unittest.main()
