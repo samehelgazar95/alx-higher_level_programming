@@ -347,9 +347,10 @@ class TestRectangle(unittest.TestCase):
     
     def test_save_to_file3(self):
         Rectangle.save_to_file([])
-        with open("Rectangle.json", 'r') as f:
+        file_name = "{}.json".format(Rectangle.__name__)
+        with open(file_name, 'r') as f:
             file_content = f.read()
-            os.remove("Rectangle.json")
+            os.remove(file_name)
             expected_content = []
             self.assertEqual(file_content, json.dumps(expected_content))        
     
