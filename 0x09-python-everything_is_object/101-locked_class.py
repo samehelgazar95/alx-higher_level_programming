@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""LockedClass Class Module"""
 
 
 class LockedClass:
@@ -14,10 +15,3 @@ class LockedClass:
     """
 
     __slots__ = ('first_name',)
-
-    def __init__(self):
-        """
-            Initializes an instance of the LockedClass
-            with a default value for first_name.
-        """
-        self.first_name = None
