@@ -2,7 +2,7 @@
 
 
 class LockedClass:
-     """
+    """
         A class with restricted attribute creation using __slots__.
 
         Attributes:
@@ -12,12 +12,12 @@ class LockedClass:
         Methods:
         __init__(): Initializes an instance of the LockedClass.
     """
-    
+
     __slots__ = ('first_name',)
-    
+
     def __init__(self):
         """
-            Initializes an instance of the LockedClass with a default value for first_name.
+            Initializes an instance of the LockedClass
+            with a default value for first_name.
         """
-
         self.first_name = None
