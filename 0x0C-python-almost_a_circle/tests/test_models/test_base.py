@@ -1,9 +1,5 @@
 #!/usr/bin/python3
-"""
-UnitTest for Base Class Module
-This is the only test file that the checker accepted
-But everythin is working so fine on my MACHINE
-"""
+"""UnitTest for Base Class Module"""
 import unittest
 import models
 from models.base import Base

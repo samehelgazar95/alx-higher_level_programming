@@ -1,10 +1,10 @@
 #!/usr/bin/python3
 '''Module for Rectangle unit tests.'''
-import unittest
+import json
+import os
 from io import StringIO
 from contextlib import redirect_stdout
-import os
-import json
+import unittest
 from models.base import Base
 from models.rectangle import Rectangle
 import models.rectangle
