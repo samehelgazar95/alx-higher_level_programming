@@ -2,5 +2,5 @@
 
 
 -- Showing all tables
-DB_NAME = "$1"
-SHOW TABLES IN $DB_NAME;
+USE $1
+SHOW TABLES;
