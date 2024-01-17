@@ -4,6 +4,6 @@
 
 -- Display both the score and the name (in this order)
 -- Ordered by score (top first)
-SELECT "score", "name"
+SELECT score, name
 FROM second_table
 ORDER BY score DESC;
