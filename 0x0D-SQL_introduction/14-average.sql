@@ -2,5 +2,5 @@
 
 
 -- The result column name should be average
-SELECT ROUND(AVG("score"), 4) AS "average"
+SELECT ROUND(AVG(score), 4) AS "average"
 FROM second_table;
