@@ -2,4 +2,4 @@
 
 
 -- Showing all tables
-SHOW TABLES IN &1;
+SHOW TABLES IN $1;
