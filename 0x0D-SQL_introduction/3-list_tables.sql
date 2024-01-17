@@ -1,4 +1,4 @@
--- Showing all tables from the arg 1
+-- Showing all tables from the arg one
 
 
 -- Showing all tables
