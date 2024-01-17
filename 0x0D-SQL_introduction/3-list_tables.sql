@@ -2,5 +2,5 @@
 
 
 -- Showing all tables
-USE &1;
+USE @1;
 SHOW TABLES;
