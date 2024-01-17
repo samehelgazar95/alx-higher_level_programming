@@ -8,4 +8,4 @@
 SELECT score, name
 FROM second_table
 WHERE name IS NOT NULL AND name !='' 
-ORDER BY SCHEMA DESC;
+ORDER BY score DESC;
