@@ -1,3 +1,9 @@
 #!/usr/bin/node
-const myVar = 'JavaScript is amazing';
-console.log(myVar);
+
+const args = process.argv;
+
+if (args[2]) {
+  console.log(args[2]);
+} else {
+  console.log('No argument');
+}
