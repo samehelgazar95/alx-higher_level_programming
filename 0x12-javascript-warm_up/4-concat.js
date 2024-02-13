@@ -1,3 +1,5 @@
 #!/usr/bin/node
-const myVar = 'JavaScript is amazing';
-console.log(myVar);
+
+const args = process.argv;
+
+console.log(`${args[2]} is ${args[3]}`);
