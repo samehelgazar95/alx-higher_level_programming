@@ -2,6 +2,6 @@
 
 const values = ['C is fun', 'Python is cool', 'JavaScript is amazing'];
 
-values.forEach((e) => {
-  console.log(e);
-});
+for (const val of values) {
+  console.log(val);
+}
