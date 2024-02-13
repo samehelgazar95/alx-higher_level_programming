@@ -1,3 +1,10 @@
 #!/usr/bin/node
-const myVar = 'JavaScript is amazing';
-console.log(myVar);
+
+const args = process.argv;
+
+if (args.length <= 3) {
+  console.log(0);
+} else {
+  args.slice(3).sort();
+  console.log(args[2]);
+}
