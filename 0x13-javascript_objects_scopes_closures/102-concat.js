@@ -1,16 +1,14 @@
 #!/usr/bin/node
 
-function concatsFiles(src1, src2, dest) {
-  // Sync
-  const fs = require('node:fs');
-  const fileA = fs.readFileSync(src1, 'utf8');
-  const fileB = fs.readFileSync(src2, 'utf8');
+const fs = require('node:fs');
+const args = process.argv;
 
-  fs.appendFileSync(dest, fileA);
-  fs.appendFileSync(dest, fileB);
-}
+// Sync
+const fileA = fs.readFileSync(args[2], 'utf8');
+const fileB = fs.readFileSync(args[3], 'utf8');
 
-concatsFiles('fileA', 'fileB', 'fileC');
+fs.appendFileSync(args[4], fileA);
+fs.appendFileSync(args[4], fileB);
 
 // Async >> use Promise to handle
 // fs.readFile('fileA', 'utf8', (err, data) => {
