@@ -1,14 +1,11 @@
 #!/usr/bin/node
 
 const fs = require('node:fs');
-const args = process.argv;
+const args = process.argv.slice(2).map((arg) => arg.toString());
 
 // Sync
-const fileA = fs.readFileSync(args[2], 'utf8');
-const fileB = fs.readFileSync(args[3], 'utf8');
-
-fs.appendFileSync(args[4], fileA);
-fs.appendFileSync(args[4], fileB);
+fs.appendFileSync(args[2], fs.readFileSync(args[0], 'utf8'));
+fs.appendFileSync(args[2], fs.readFileSync(args[1], 'utf8'));
 
 // Async >> use Promise to handle
 // fs.readFile('fileA', 'utf8', (err, data) => {
