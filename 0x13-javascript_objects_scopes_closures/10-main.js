@@ -11,4 +11,3 @@ myConverter = converter(16);
 
 console.log(myConverter(2));
 console.log(myConverter(12));
-consol;
