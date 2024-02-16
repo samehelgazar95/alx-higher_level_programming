@@ -15,20 +15,20 @@ def cities_of_state(myUser, myPass, myDb, state_name):
         )
         ORDER BY cities.id ASC;
     """
-
-    conn = MySQLdb.connect(
-                host='localhost',
-                port=3306,
-                charset='utf8',
-                user=myUser,
-                passwd=myPass,
-                db=myDb
-            )
-
-    cur = conn.cursor()
-    cur.execute(qry, {'state_name': state_name})
-    results = ', '.join(city[0] for city in cur.fetchall())
-    print(results)
+    try:
+        with MySQLdb.connect(
+                host='localhost', port=3306,
+                charset='utf8', user=myUser,
+                passwd=myPass, db=myDb
+                ) as conn:
+            with conn.cursor() as cur:
+                cur.execute(qry, {'state_name': state_name})
+                results = ', '.join(city[0] for city in cur.fetchall())
+                print(results)
+    except MySQLdb.Error as e:
+        print(f'MySQLdb Error: {e}')
+    except Exception as e:
+        print(f'Error: {e}')
 
 
 if __name__ == "__main__":
