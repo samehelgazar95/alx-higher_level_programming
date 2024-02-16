@@ -6,7 +6,7 @@ import sys
 
 def list_state_n(user_name, password, db_name, state_name):
     qry = f"SELECT * FROM states\
-           WHERE name = '{state_name}'\
+           WHERE states.name = '{state_name}'\
            ORDER BY states.id ASC"
     db = MySQLdb.connect(host='localhost',
                          port=3306,
@@ -25,4 +25,5 @@ def list_state_n(user_name, password, db_name, state_name):
 
 
 if __name__ == "__main__":
-    list_state_n(sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4])
+    args = sys.argv
+    list_state_n(args[1], args[2], args[3], args[4])
