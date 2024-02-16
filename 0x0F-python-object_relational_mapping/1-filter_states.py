@@ -5,7 +5,7 @@ import sys
 
 
 def list_state_n(user_name, password, db_name):
-    qry = "SELECT * FROM states WHERE name LIKE 'N%' ORDER BY states.id ASC"
+    qry = "SELECT * FROM states WHERE name LIKE BINARY 'N%' ORDER BY states.id ASC"
     db = MySQLdb.connect(host='localhost',
                          port=3306,
                          charset='utf8',
