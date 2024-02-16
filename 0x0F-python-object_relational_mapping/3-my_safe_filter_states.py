@@ -6,17 +6,19 @@ import sys
 
 
 def list_state_n(user_name, password, db_name, state_name):
-    qry = f"SELECT * FROM states\
-           WHERE name = '{state_name}'\
-           ORDER BY states.id ASC"
+    qry = """
+                SELECT * FROM states
+                WHERE name = %(state_name)s
+                ORDER BY states.id ASC
+            """
     db = MySQLdb.connect(host='localhost',
                          port=3306,
                          charset='utf8',
                          user=user_name,
-                         password=password,
+                         passwd=password,
                          db=db_name)
     curs = db.cursor()
-    curs.execute(qry)
+    curs.execute(qry, {'state_name': state_name})
     rows = curs.fetchall()
     for row in rows:
         print(row)
