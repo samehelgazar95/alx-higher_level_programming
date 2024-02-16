@@ -6,8 +6,8 @@ import sys
 
 def list_state_n(user_name, password, db_name, state_name):
     qry = """SELECT * FROM states
-           WHERE states.name = '{s_name}'
-           ORDER BY states.id ASC""".format(s_name=state_name)
+           WHERE name LIKE BINARY '{}'
+           ORDER BY states.id ASC""".format(state_name)
     db = MySQLdb.connect(host='localhost',
                          port=3306,
                          charset='utf8',
