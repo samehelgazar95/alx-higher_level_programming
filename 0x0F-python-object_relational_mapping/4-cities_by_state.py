@@ -5,29 +5,24 @@ import sys
 
 
 def print_cities(myUSER, myPASS, myDB):
-    conn = MySQLdb.connect(
-                host='localhost',
-                port=3306,
-                charset='utf8',
-                passwd=myPASS,
-                user=myUSER,
-                db=myDB
-            )
-
-    cur = conn.cursor()
-    cur.execute("""
+    qry = """
         SELECT cities.id, cities.name, states.name
         FROM cities INNER JOIN states
         ON cities.state_id = states.id
         ORDER BY cities.id ASC;
-    """)
+    """
 
-    results = cur.fetchall()
-    for record in results:
-        print(record)
+    with MySQLdb.connect(
+                host='localhost', port=3306,
+                charset='utf8', passwd=myPASS,
+                user=myUSER, db=myDB
+                ) as conn:
+        with conn.cursor() as cur:
+            cur.execute(qry)
 
-    cur.close()
-    conn.close()
+            results = cur.fetchall()
+            for record in results:
+                print(record)
 
 
 if __name__ == "__main__":
