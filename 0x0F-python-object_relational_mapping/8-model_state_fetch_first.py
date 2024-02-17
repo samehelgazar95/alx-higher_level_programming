@@ -15,7 +15,7 @@ from model_state import Base, State
 def first_state(myUser, myPass, myDb):
 
     # Create the engine
-    sql_url = 'mysql+mysqldb://{}:{}@localhost/{}'
+    sql_url = 'mysql+mysqldb://{}:{}@localhost:3306/{}'
     engine = create_engine(sql_url.format(myUser, myPass, myDb))
 
     # Creating the tables

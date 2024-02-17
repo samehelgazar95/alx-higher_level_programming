@@ -12,7 +12,7 @@ from sqlalchemy.orm import sessionmaker
 
 def search_for_states(_usr, _pass, _db, _state):
     # Create the engine
-    sql_url = 'mysql+mysqldb://{}:{}@localhost/{}'
+    sql_url = 'mysql+mysqldb://{}:{}@localhost:3306/{}'
     engine = create_engine(sql_url.format(_usr, _pass, _db))
 
     # Configure the session & Ceate tables

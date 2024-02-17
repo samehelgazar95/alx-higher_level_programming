@@ -11,7 +11,7 @@ from sqlalchemy.orm import sessionmaker
 
 def list_states(myUser, myPass, myDb):
     # Create the engine
-    sql_url = 'mysql+mysqldb://{}:{}@localhost/{}'
+    sql_url = 'mysql+mysqldb://{}:{}@localhost:3306/{}'
     engine = create_engine(sql_url.format(myUser, myPass, myDb))
 
     # Creating tables & Configure Session
