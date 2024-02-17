@@ -6,18 +6,23 @@ List data from states using SQLAlchemy
 """
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-import sys
+from sys import argv
 from model_state import Base, State
 
 
 def list_state(myUser, myPass, myDb):
-    engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}' \
-            .format(myUser, myPass, myDb), pool_pre_ping=True)
-    Base.metadata.create_all(engine)
+    # Create Engine
+    sql_url = 'mysql+mysqldb://{}:{}@localhost:3306/{}'
+    engine = create_engine(sql_url.format(myUser, myPass, myDb))
+
+    # Configure the Session
     Session = sessionmaker(bind=engine)
+
+    # Create a Session
+    Base.metadata.create_all(engine)
     session = Session()
 
-    states = session.query(State)
+    states = session.query(State).order_by(State.id).all()
     for state in states:
         print('{}: {}'.format(state.id, state.name))
 
@@ -25,5 +30,4 @@ def list_state(myUser, myPass, myDb):
 
 
 if __name__ == "__main__":
-    args = sys.argv
-    list_state(args[1], args[2], args[3])
+    list_state(argv[1], argv[2], argv[3])
