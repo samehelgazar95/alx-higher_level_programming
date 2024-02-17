@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-# coding = 'utf-8'
 """
 Search for a specific state
 """
@@ -14,7 +13,7 @@ def search_for_states(_usr, _pass, _db, _state):
     # Create the engine
     sql_url = 'mysql+mysqldb://{}:{}@localhost:3306/{}'
     full_sql_url = sql_url.format(_usr, _pass, _db)
-    engine = create_engine(full_sql_url, pool_pre_ping=True)
+    engine = create_engine(full_sql_url)
 
     # Configure the session & Ceate tables
     Base.metadata.create_all(engine)
