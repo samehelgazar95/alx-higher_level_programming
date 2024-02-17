@@ -25,7 +25,7 @@ def search_for_states(_usr, _pass, _db, _state):
     result = session.query(State).filter(State.name == str(_state))
 
     if result:
-        print("{}".format(result.id))
+        print("{}".format(result[0].id))
     else:
         print('Not Found')
 
