@@ -22,7 +22,7 @@ def search_for_states(_usr, _pass, _db, _state):
 
     # Create a session
     session = Session()
-    result = session.query(State).filter(State.name == str(_state)).first()
+    result = session.query(State).filter(State.name == str(_state))
 
     if result:
         print("{}".format(result.id))
