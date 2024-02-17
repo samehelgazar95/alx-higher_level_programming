@@ -1,5 +1,10 @@
 #!/usr/bin/python3
 # coding = 'utf-8'
+"""
+Print the first state if found
+or Nothing if not found
+"""
+
 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
@@ -8,6 +13,8 @@ from model_state import Base, State
 
 
 def first_state(myUser, myPass, myDb):
+
+    # Create the engine
     sql_url = 'mysql+mysqldb://{}:{}@localhost/{}'
     engine = create_engine(sql_url.format(myUser, myPass, myDb))
     Base.metadata.create_all(engine)
