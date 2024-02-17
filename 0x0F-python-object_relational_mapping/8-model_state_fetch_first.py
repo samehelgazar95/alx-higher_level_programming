@@ -33,6 +33,8 @@ def first_state(myUser, myPass, myDb):
     else:
         print('Nothing')
 
+    session.close()
+
 
 if __name__ == "__main__":
     first_state(argv[1], argv[2], argv[3])

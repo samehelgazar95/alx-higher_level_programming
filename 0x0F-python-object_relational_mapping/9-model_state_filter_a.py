@@ -26,6 +26,8 @@ def list_states(myUser, myPass, myDb):
     for res in result:
         print('{}: {}'.format(res.id, res.name))
 
+    session.close(_
+
 
 if __name__ == "__main__":
     list_states(argv[1], argv[2], argv[3])
