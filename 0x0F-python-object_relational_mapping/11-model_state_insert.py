@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 # coding = 'utf-8'
 """
+Inserting new state & updating it's id
 """
 
 from sys import argv
