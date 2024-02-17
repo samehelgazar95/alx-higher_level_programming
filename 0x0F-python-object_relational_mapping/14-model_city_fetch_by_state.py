@@ -25,7 +25,7 @@ def print_cities(myUser, myPass, myDb):
             State.id == City.state_id).order_by(City.id)
 
     for res in results:
-        print("{}: ({} {}".format(
+        print("{}: ({}) {}".format(
             res.State.name,
             res.City.id,
             res.City.name
