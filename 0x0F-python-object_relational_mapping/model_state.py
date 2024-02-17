@@ -25,3 +25,6 @@ class State(Base):
                 nullable=False,
                 primary_key=True)
     name = Column(String(128), nullable=False)
+
+    def __init__(self, name):
+        self.name = name
