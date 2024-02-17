@@ -17,8 +17,14 @@ def first_state(myUser, myPass, myDb):
     # Create the engine
     sql_url = 'mysql+mysqldb://{}:{}@localhost/{}'
     engine = create_engine(sql_url.format(myUser, myPass, myDb))
+
+    # Creating the tables
     Base.metadata.create_all(engine)
+
+    # Configure the session
     Session = sessionmaker(bind=engine)
+
+    # Start a session
     session = Session()
     first_state = session.query(State).order_by(State.id).first()
 
