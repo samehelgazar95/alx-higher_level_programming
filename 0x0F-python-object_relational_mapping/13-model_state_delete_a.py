@@ -24,7 +24,6 @@ def delete_state(_usr, _pass, _db):
     for res in results:
         session.delete(res)
         session.commit()
-
     session.close()
 
 
