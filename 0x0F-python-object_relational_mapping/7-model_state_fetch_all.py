@@ -1,31 +1,27 @@
 #!/usr/bin/python3
+# coding = 'utf-8'
+
 """
-Printing data from states table
+List data from states using SQLAlchemy
 """
-import MySQLdb
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
 import sys
 from model_state import Base, State
 
 
 def list_state(myUser, myPass, myDb):
-    qry = """
-        SELECT * FROM states
-        ORDER BY id ASC
-        """
+    engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}' \
+            .format(myUser, myPass, myDb), pool_pre_ping=True)
+    Base.metadata.create_all(engine)
+    Session = sessionmaker(bind=engine)
+    session = Session()
 
-    with MySQLdb.connect(
-                        user=myUser,
-                        passwd=myPass,
-                        db=myDb,
-                        host='localhost',
-                        port=3306,
-                        charset='utf8') as conn:
-        with conn.cursor() as cur:
-            cur.execute(qry)
-            results = cur.fetchall()
+    states = session.query(State)
+    for state in states:
+        print('{}: {}'.format(state.id, state.name))
 
-            for res in results:
-                print("{}: {}".format(res[0], res[1]))
+    session.close()
 
 
 if __name__ == "__main__":
