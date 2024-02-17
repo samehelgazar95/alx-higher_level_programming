@@ -10,7 +10,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
 
-def update_state(_usr, _pass, _db):
+def insert_state(_usr, _pass, _db):
     # Create the engine
     sql_url = 'mysql+mysqldb://{}:{}@localhost:3306/{}'
     engine = create_engine(sql_url.format(_usr, _pass, _db))
@@ -32,4 +32,4 @@ def update_state(_usr, _pass, _db):
 
 
 if __name__ == "__main__":
-    update_state(argv[1], argv[2], argv[3])
+    insert_state(argv[1], argv[2], argv[3])
