@@ -15,13 +15,12 @@ def search_for_states(_usr, _pass, _db, _state):
     sql_url = 'mysql+mysqldb://{}:{}@localhost/{}'
     engine = create_engine(sql_url.format(_usr, _pass, _db))
 
-    # Configure the session & Ceate tables
-    Base.metadata.create_all(engine)
+    # Configure the session
     Session = sessionmaker(bind=engine)
 
     # Create a session
     session = Session()
-    result = session.query(State).filter(State.name == _state).first()
+    result = session.query(State).filter(State.name == '_state').first()
 
     if result:
         print(result.id)
