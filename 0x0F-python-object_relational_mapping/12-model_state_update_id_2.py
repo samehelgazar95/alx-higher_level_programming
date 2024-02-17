@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 # coding = 'utf-8'
 """
+Update record with id = 2
 """
 
 from sys import argv
