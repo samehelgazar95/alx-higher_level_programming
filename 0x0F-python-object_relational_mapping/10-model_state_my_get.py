@@ -9,10 +9,10 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
 
-def search_for_states(_usr, _pass, _db, _state):
+def search_for_states(myUser, myPass, myDb, search_state):
     # Create the engine
     sql_url = 'mysql+mysqldb://{}:{}@localhost:3306/{}'
-    full_sql_url = sql_url.format(_usr, _pass, _db)
+    full_sql_url = sql_url.format(myUser, myPass, myDb)
     engine = create_engine(full_sql_url)
 
     # Configure the session & Ceate tables
@@ -21,7 +21,7 @@ def search_for_states(_usr, _pass, _db, _state):
 
     # Create a session
     session = Session()
-    result = session.query(State).filter(State.name == str(_state))
+    result = session.query(State).filter(State.name == str(search_state))
 
     if result:
         print("{}".format(result[0].id))
