@@ -28,6 +28,8 @@ def search_for_states(_usr, _pass, _db, _state):
     else:
         print('Not Found')
 
+    session.close()
+
 
 if __name__ == '__main__':
     search_for_states(argv[1], argv[2], argv[3], argv[4])
