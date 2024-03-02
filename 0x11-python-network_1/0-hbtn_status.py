@@ -12,11 +12,10 @@ def url_req(url):
     with urlopen(url) as res:
         content = res.read()
         html = content.decode("UTF-8")
-        msg = """Body response:
-        - type: {}
-        - content: {}
-        - utf8 content: {}""".format(type(content), content, html)
-        print(msg)
+        print('Body response:')
+        print('\t- type: {}'.format(type(content)))
+        print('\t- content: {}'.format(content))
+        print('\t- utf8 content: {}'.format(html))
 
 
 if __name__ == "__main__":
