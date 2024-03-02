@@ -6,6 +6,12 @@ from sys import argv
 
 
 def post_email(url, email):
+    """
+    Posting Email to a specific URL
+    Arguments:
+        url: the url to send to
+        email: the email to send
+    """
     try:
         params = urlencode({'email': email})
         params = params.encode('ascii')
@@ -22,4 +28,3 @@ if __name__ == '__main__':
     url = argv[1]
     email = argv[2]
     post_email(url, email)
-
