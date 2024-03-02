@@ -14,7 +14,7 @@ def body_or_error(url):
     try:
         with urlopen(url) as res:
             temp = res.read()
-            data = temp.decode("UTF-8")
+            data = temp.decode("ascii")
             print(data)
     except HTTPError as e:
         print('Error Code: ', e.code)
