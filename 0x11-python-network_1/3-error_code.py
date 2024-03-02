@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" Print the boyd and the error code """
+""" Print the body and the error code """
 from sys import argv
 from urllib.request import urlopen
 from urllib.error import HTTPError
