@@ -1,13 +1,13 @@
 #!/usr/bin/python3
-""" Print the body and the error code """
+""" Printing the res or the error """
 
 
 if __name__ == "__main__":
-    from sys import argv
+    import sys
     from urllib import request, error
 
     try:
-        with request.urlopen(argv[1]) as res:
+        with request.urlopen(sys.argv[1]) as res:
             print(res.read().decode('UTF-8'))
     except error.HTTPError as e:
-        print('Error Code:', e.code)
+        print('Error code:', e.code)
