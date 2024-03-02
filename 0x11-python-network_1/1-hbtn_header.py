@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# Return the X-Request-Id header
+""" Return the X-Request-Id header """
 from urllib.request import urlopen
 from sys import argv
 
