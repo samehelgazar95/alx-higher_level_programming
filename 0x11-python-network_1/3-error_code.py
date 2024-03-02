@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """ Print the body and the error code """
 from sys import argv
-from urllib.request import urlopen
+from urllib.request import Request, urlopen
 from urllib.error import HTTPError
 
 
@@ -12,12 +12,13 @@ def body_or_error(url):
         url: the url to use
     """
     try:
-        with urlopen(url) as res:
+        req = Request(url)
+        with urlopen(req) as res:
             temp = res.read()
             data = temp.decode("ascii")
             print(data)
     except HTTPError as e:
-        print('Error Code: ', e.code)
+        print('Error Code: {}'.format(e.code))
 
 
 if __name__ == '__main__':
