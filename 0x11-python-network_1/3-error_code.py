@@ -17,7 +17,7 @@ def body_or_error(url):
             data = temp.decode("UTF-8")
             print(data)
     except HTTPError as e:
-        print('Error Code: ', e.status)
+        print('Error Code: ', e.code)
 
 
 if __name__ == '__main__':
