@@ -9,7 +9,7 @@ def get_commits(repo, owner):
         owner, repo
     )
     req = get(url)
-    
+
     try:
         req_json = req.json()
         for item in req_json[:10]:
