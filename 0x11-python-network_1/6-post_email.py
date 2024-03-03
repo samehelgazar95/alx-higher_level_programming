@@ -1,0 +1,9 @@
+#!/usr/bin/python3
+""" Post email to url """
+import requests
+from sys import argv
+
+
+if __name__ == "__main__":
+    res = requests.post(argv[1], params={"email": argv[2]})
+    print(res.text)
