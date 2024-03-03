@@ -8,7 +8,7 @@ def url_req(url):
     Requesting url
     Arguments:
         url: the url to request
-    """
+    """    
     with urlopen(url) as res:
         content = res.read()
         html = content.decode("UTF-8")
