@@ -9,12 +9,16 @@ def get_commits(repo, owner):
         owner, repo
     )
     req = get(url)
-    req_json = req.json()
 
-    for item in req_json[-10:]:
-        print('{}: {}'.format(
-            item['sha'], item['commit']['author']['name'])
-        )
+    try:
+        req_json = req.json()
+
+        for item in req_json[-10:]:
+            print('{}: {}'.format(
+                item['sha'], item['commit']['author']['name'])
+            )
+    except Exception as e:
+        print(e)
 
 
 if __name__ == "__main__":
