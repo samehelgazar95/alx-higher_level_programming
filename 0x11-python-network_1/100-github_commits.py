@@ -16,7 +16,7 @@ def get_commits(repo, owner):
             print('{}: {}'.format(
                 item['sha'], item['commit']['author']['name'])
             )
-    except Exception as e:
+    except Exception:
         pass
 
 
