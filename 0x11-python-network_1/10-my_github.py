@@ -8,7 +8,7 @@ from sys import argv
 
 
 def display_id(user, pwd):
-    url = 'https://api.github.com/users/{}/{}'.format(user, pwd)
+    url = 'https://api.github.com/user'
     req = get(url, auth=HTTPBasicAuth(user, pwd))
 
     req_json = req.json()
