@@ -10,11 +10,12 @@ def get_commits(repo, owner):
     )
     req = get(url)
     req_json = req.json()
-    
-    for item in req_json:
-        print(item['sha'])
-        print(item['commit']['author']['name'])
-        print("")
-    
+
+    for item in req_json[-10:]:
+        print('{}: {}'.format(
+            item['sha'], item['commit']['author']['name'])
+        )
+
+
 if __name__ == "__main__":
     get_commits(argv[1], argv[2])
