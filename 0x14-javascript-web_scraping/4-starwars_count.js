@@ -2,17 +2,16 @@
 
 const request = require('request');
 const url = process.argv[2];
-const findMe = 'https://swapi-api.alx-tools.com/api/people/18/';
+let counter = 0;
 
 request.get(url, (err, res, body) => {
-  let counter = 0;
   err && console.log(err);
-  const data = JSON.parse(body);
-  const results = data.results;
+
+  const results = JSON.parse(body).results;
 
   results.forEach((e) => {
     e.characters.forEach((ele) => {
-      if (ele === findMe) counter++;
+      if (ele.split('/')[5] === '18') counter++;
     });
   });
 
