@@ -2,9 +2,9 @@
 
 const request = require('request');
 const url = process.argv[2];
-let counter = 0;
 
 request.get(url, (err, res, body) => {
+  let counter = 0;
   err && console.log(err);
 
   const results = JSON.parse(body).results;
