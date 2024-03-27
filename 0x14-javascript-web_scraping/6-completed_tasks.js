@@ -13,7 +13,8 @@ request.get(url, (err, res, body) => {
     const completed = e.completed;
     const userId = e.userId;
 
-    if (completed && !completedTasks[userId]) { completedTasks[userId] = 1; } else { completedTasks[userId]++; }
+    if (completed && !completedTasks[userId]) { completedTasks[userId] = 0; }
+		if (completed) { completedTasks[userId]++; }
   });
 
   console.log(completedTasks);
